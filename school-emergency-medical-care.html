@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>School Emergency Medical Care — Iron Rescue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:        #8B1A1A;
+      --red-accent: #C0392B;
+      --white:      #ffffff;
+      --off-white:  #F8F8F8;
+      --dark:       #1A1A1A;
+      --dark-footer:#111111;
+      --gray:       #6B7280;
+      --gray-light: #9CA3AF;
+      --gold:       #F59E0B;
+      --border:     #E5E7EB;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      font-size: 16px;
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+    }
+    .btn-red { background: var(--red); color: var(--white); border-color: var(--red); }
+    .btn-red:hover { background: #6d1414; border-color: #6d1414; transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--dark); border-color: var(--dark); }
+    .btn-ghost:hover { background: var(--dark); color: var(--white); transform: translateY(-1px); }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red-accent);
+      margin-bottom: 14px;
+    }
+
+    .section { padding: 96px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+    .section-header { text-align: center; margin-bottom: 56px; }
+
+    .section-heading {
+      font-size: clamp(28px, 3vw, 44px);
+      color: var(--dark);
+      margin-bottom: 16px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .section-subhead {
+      font-size: 16px;
+      color: var(--gray);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-right { display: flex; align-items: center; margin-left: auto; }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      color: var(--dark);
+    }
+
+    .nav-logo-mark {
+      width: 36px; height: 36px;
+      background: var(--red);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+      margin-right: 32px;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--dark); }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
+    .nav-dropdown > a::after {
+      content: '';
+      display: inline-block;
+      width: 0; height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid currentColor;
+      margin-top: 1px;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown:hover > a::after { transform: rotate(180deg); }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      min-width: 240px;
+      padding: 8px 0;
+      z-index: 999;
+    }
+
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .nav-dropdown.open > a::after { transform: rotate(180deg); }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--dark);
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+      letter-spacing: 0;
+    }
+    .dropdown-menu a:hover { background: var(--off-white); color: var(--red); }
+    .dropdown-menu a.active { color: var(--red); font-weight: 600; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); transition: all 0.3s; }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 40px;
+      z-index: 999;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+    .mobile-menu ul a { font-size: 16px; font-weight: 500; color: var(--dark); }
+
+    .hero {
+      margin-top: 72px;
+      height: 600px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 64px 60px 0;
+      padding-left: calc((100vw - 1200px) / 2 + 40px);
+      position: relative;
+      overflow: hidden;
+      background-color: var(--off-white);
+    }
+
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('images/wm-hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .hero-content > * { position: relative; z-index: 1; }
+
+    .hero-headline { font-size: clamp(32px, 3.5vw, 50px); color: var(--dark); line-height: 1.08; margin-bottom: 16px; }
+    .hero-subhead { font-size: 18px; font-weight: 600; color: var(--red-accent); margin-bottom: 16px; font-family: 'Barlow', sans-serif; text-transform: none; letter-spacing: 0; }
+    .hero-body { font-size: 15px; line-height: 1.75; color: var(--gray); max-width: 460px; margin-bottom: 36px; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-image { position: relative; overflow: hidden; }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    .master-section { background: #F8F8F8; }
+
+    .master-heading { font-size: clamp(28px, 3vw, 40px); color: var(--red); text-align: center; margin-bottom: 56px; }
+
+    .master-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 48px; margin-bottom: 56px; }
+
+    .master-item { display: flex; gap: 16px; background: var(--white); border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 24px; }
+
+    .master-icon { width: 40px; height: 40px; background: rgba(139,26,26,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .master-icon svg { width: 20px; height: 20px; stroke: var(--red-accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .master-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--dark); margin-bottom: 6px; }
+    .master-desc { font-size: 14px; line-height: 1.7; color: var(--gray); }
+    .master-cta { text-align: center; }
+
+    .structure-section { background: linear-gradient(to bottom, #A02020 0%, #660E0E 100%); }
+
+    .structure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+    .structure-photo { border-radius: 4px; overflow: hidden; }
+    .structure-photo img { width: 100%; height: 480px; object-fit: cover; }
+
+    .structure-eyebrow { color: rgba(255,255,255,0.65) !important; }
+    .structure-heading { font-size: clamp(24px, 2.5vw, 36px); color: var(--white); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 0.03em; }
+
+    .steps-list { display: flex; flex-direction: column; gap: 32px; }
+    .step-item { display: flex; gap: 20px; }
+
+    .step-number { width: 28px; height: 28px; background: rgba(255,255,255,0.25); border: 2px solid rgba(255,255,255,0.6); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .step-number span { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--white); }
+    .step-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--white); margin-bottom: 8px; }
+    .step-desc { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.75); }
+
+    .pricing-section { background: var(--off-white); }
+
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto; }
+
+    .pricing-card { background: var(--white); border-radius: 8px; padding: 40px 36px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); position: relative; }
+    .pricing-card.featured { border-top: 4px solid var(--red); }
+
+    .pricing-label { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red-accent); margin-bottom: 16px; }
+    .pricing-price { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 700; color: var(--dark); line-height: 1; margin-bottom: 6px; }
+    .pricing-note { font-size: 13px; color: var(--gray-light); font-style: italic; margin-bottom: 28px; }
+    .pricing-btn { width: 100%; margin-bottom: 28px; }
+    .pricing-features-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--dark); line-height: 1.5; }
+
+    .check-icon { width: 18px; height: 18px; background: rgba(139,26,26,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .check-icon svg { width: 10px; height: 10px; stroke: var(--red); fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+
+    .testimonials-section { background: var(--off-white); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card { background: var(--off-white); border-radius: 6px; padding: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+    .stars { display: flex; gap: 4px; margin-bottom: 20px; }
+    .star { width: 16px; height: 16px; fill: var(--gold); }
+    .testimonial-quote { font-size: 15px; line-height: 1.75; color: var(--dark); font-style: italic; margin-bottom: 24px; }
+    .testimonial-author { font-size: 13px; font-weight: 700; color: var(--dark); }
+    .testimonial-course { font-size: 12px; color: var(--gray-light); margin-top: 2px; }
+
+    .final-cta { position: relative; padding: 120px 0; overflow: hidden; }
+    .final-cta-bg { position: absolute; inset: 0; z-index: 0; }
+    .final-cta-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .final-cta-bg::after { content: ''; position: absolute; inset: 0; background: rgba(17,17,17,0.82); }
+    .final-cta-content { position: relative; z-index: 1; text-align: center; max-width: 640px; margin: 0 auto; padding: 0 40px; }
+    .final-cta-headline { font-size: clamp(32px, 4vw, 54px); color: var(--white); margin-bottom: 12px; }
+    .final-cta-subhead { font-size: 22px; font-weight: 700; color: var(--red-accent); margin-bottom: 20px; font-family: 'Barlow', sans-serif; }
+    .final-cta-body { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
+
+    footer { background: var(--dark-footer); color: var(--white); padding: 72px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 60px; padding-bottom: 56px; }
+    .footer-tagline { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.5); margin-bottom: 24px; max-width: 260px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 4px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .footer-social a:hover { background: var(--red); }
+    .footer-social svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.7); }
+    .footer-col-heading { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; text-align: center; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; height: auto; }
+      .hero-image { order: -1; height: 340px; }
+      .hero-content { padding: 56px 40px; }
+      .structure-grid { grid-template-columns: 1fr; gap: 48px; }
+      .structure-photo img { height: 320px; }
+      .master-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-right { display: none; }
+      .hamburger { display: flex; }
+      .container { padding: 0 20px; }
+      .nav-inner { padding: 0 20px; }
+      .section { padding: 60px 0; }
+      .hero-image { height: 260px; }
+      .hero-content { padding: 48px 20px; }
+      .hero-headline { font-size: 30px; }
+      .master-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .final-cta { padding: 80px 0; }
+      .final-cta-content { padding: 0 20px; }
+      .section-heading { font-size: 26px; }
+      .structure-heading { font-size: 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">
+          <svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M19.07 4.93l-4.24 4.24M9.17 14.83l-4.24 4.24" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+        </div>
+        IRON RESCUE
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li class="nav-dropdown">
+            <a href="index.html#courses">Courses</a>
+            <div class="dropdown-menu">
+              <a href="mass-casualty-trauma-response.html">Mass Casualty Trauma Response</a>
+              <a href="school-emergency-medical-care.html" class="active">School Emergency Medical Care</a>
+              <a href="wilderness-medicine.html">Wilderness Medicine</a>
+              <a href="tactical-emergency-casualty-care.html">Tactical Emergency Casualty Care</a>
+              <a href="home-emergency-preparedness.html">Home Emergency Preparedness</a>
+              <a href="workplace-safety-and-response.html">Workplace Safety and Response</a>
+            </div>
+          </li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="#">Affiliates</a></li>
+        </ul>
+        <a href="#pricing" class="btn btn-red" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="#" id="mobileCoursesToggle" style="display:flex;justify-content:space-between;align-items:center;">
+          Courses
+          <span id="mobileCoursesArrow" style="font-size:11px;transition:transform 0.2s;">▼</span>
+        </a>
+        <ul id="mobileCoursesList" style="display:none;list-style:none;padding-left:16px;margin-top:12px;gap:12px;flex-direction:column;">
+          <li><a href="mass-casualty-trauma-response.html" style="font-size:14px;color:var(--gray);">Mass Casualty Trauma Response</a></li>
+          <li><a href="school-emergency-medical-care.html" style="font-size:14px;color:var(--red);font-weight:600;">School Emergency Medical Care</a></li>
+          <li><a href="wilderness-medicine.html" style="font-size:14px;color:var(--gray);">Wilderness Medicine</a></li>
+          <li><a href="tactical-emergency-casualty-care.html" style="font-size:14px;color:var(--gray);">Tactical Emergency Casualty Care</a></li>
+          <li><a href="home-emergency-preparedness.html" style="font-size:14px;color:var(--gray);">Home Emergency Preparedness</a></li>
+          <li><a href="workplace-safety-and-response.html" style="font-size:14px;color:var(--gray);">Workplace Safety and Response</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="#">Affiliates</a></li>
+    </ul>
+    <a href="#pricing" class="btn btn-red" style="width: 100%; justify-content: center; margin-top: 8px;">Get Certified</a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content fade-in">
+      <span class="eyebrow">School Emergency Medical Care</span>
+      <h1 class="hero-headline">Become the Teacher Who's Ready to Save</h1>
+      <p class="hero-subhead">When a mass casualty event strikes, emergency services are minutes away. You're already there.</p>
+      <p class="hero-body">School Emergency Medical Care gives educators the hands-on medical skills to stop life-threatening bleeding, stabilize injuries, and keep the people they love alive in the moments that count. Because when something happens in your classroom, there's no waiting for help.</p>
+      <div class="hero-btns">
+        <a href="#pricing" class="btn btn-red">Train With Us</a>
+        <a href="#" class="btn btn-ghost">See Course Dates</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="images/course-2.jpg" alt="School emergency medical training" />
+    </div>
+  </section>
+
+  <section class="section master-section">
+    <div class="container">
+      <h2 class="master-heading fade-in">What You'll Master</h2>
+      <div class="master-grid">
+        <div class="master-item fade-in">
+          <div class="master-icon">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div>
+            <div class="master-title">Life Saving Skills</div>
+            <div class="master-desc">Learn the critical interventions that keep someone alive until rescue arrives — even when you're the only trained adult in the building.</div>
+          </div>
+        </div>
+        <div class="master-item fade-in">
+          <div class="master-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          </div>
+          <div>
+            <div class="master-title">Hands-On Training</div>
+            <div class="master-desc">Practice every skill repeatedly until it becomes muscle memory under pressure. Classroom emergencies don't wait — and neither does your training.</div>
+          </div>
+        </div>
+        <div class="master-item fade-in">
+          <div class="master-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <div>
+            <div class="master-title">TECC Certification</div>
+            <div class="master-desc">Earn nationally recognized Tactical Emergency Casualty Care certification — a credential that tells your school, your parents, and your students that you're ready.</div>
+          </div>
+        </div>
+        <div class="master-item fade-in">
+          <div class="master-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="master-title">Medical Scenarios</div>
+            <div class="master-desc">Train in realistic emergencies modeled after situations that actually happen in schools — so the first time you face one isn't the first time you've thought it through.</div>
+          </div>
+        </div>
+        <div class="master-item fade-in">
+          <div class="master-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="master-title">Bleeding Simulators</div>
+            <div class="master-desc">Learn to pack wounds, apply tourniquets, and use hemostatic gauze to stop massive bleeding. These are the skills that buy time when every second matters.</div>
+          </div>
+        </div>
+        <div class="master-item fade-in">
+          <div class="master-icon">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div>
+            <div class="master-title">Medical Tools</div>
+            <div class="master-desc">Leave with a complete Individual First Aid Kit configured specifically for school emergencies — and the knowledge to use every item in it without hesitation.</div>
+          </div>
+        </div>
+      </div>
+      <div class="master-cta fade-in">
+        <a href="#pricing" class="btn btn-red">Claim Your Spot</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section structure-section">
+    <div class="container">
+      <div class="structure-grid">
+        <div class="structure-photo fade-in">
+          <img src="images/wm-structure.jpg" alt="School emergency training" />
+        </div>
+        <div class="fade-in">
+          <span class="eyebrow structure-eyebrow">Course Structure</span>
+          <h2 class="structure-heading">A Straightforward Process That Turns Caring Educators Into Confident First Responders.</h2>
+          <div class="steps-list">
+            <div class="step-item">
+              <div class="step-number"><span>1</span></div>
+              <div>
+                <div class="step-title">Learn The Material</div>
+                <div class="step-desc">We start with the medical knowledge that matters most in a school crisis. You'll understand how trauma affects the body, why the first few minutes are critical, and how to make clear-headed decisions when the people who count on you need you most. No jargon. No overwhelm. Just what matters.</div>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number"><span>2</span></div>
+              <div>
+                <div class="step-title">Practice The Skills</div>
+                <div class="step-desc">Knowledge without repetition isn't enough. You'll rotate through hands-on scenarios — stopping massive bleeding on simulators that actually bleed, stabilizing injuries with the materials around you, and making fast decisions with instructors coaching you in real time. By the end, these skills aren't just learned. They're yours.</div>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number"><span>3</span></div>
+              <div>
+                <div class="step-title">Acquire The Gear</div>
+                <div class="step-desc">Every teacher walks away with a complete Individual First Aid Kit, nationally recognized TECC certification, and access to future training. You don't just leave trained. You leave ready — for whatever walks through your classroom door.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="eyebrow">Pricing</span>
+        <h2 class="section-heading">Our Pricing</h2>
+        <p class="section-subhead">Transparent pricing. No surprise fees.</p>
+      </div>
+      <div class="pricing-grid fade-in">
+        <div class="pricing-card">
+          <div class="pricing-label">Training Only</div>
+          <div class="pricing-price">$250 USD</div>
+          <div class="pricing-note">&nbsp;</div>
+          <a href="#" class="btn btn-red pricing-btn">Reserve Your Spot</a>
+          <div class="pricing-features-label">Key features:</div>
+          <ul class="pricing-features">
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Bleeding simulator training</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Multi-casualty triage scenarios</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Fracture stabilization practice</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Patient assessment under time pressure</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>TECC certification</li>
+          </ul>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-label">Training + Kit</div>
+          <div class="pricing-price">$300 USD</div>
+          <div class="pricing-note">Includes $179.95 Reecoil Deploy Trauma Kit</div>
+          <a href="#" class="btn btn-red pricing-btn">Reserve Your Spot</a>
+          <div class="pricing-features-label">Key features:</div>
+          <ul class="pricing-features">
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Everything in Training Only</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Reecoil Deploy Trauma Kit ($179.95 value)</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>CAT Gen 7 Tourniquet</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>QuikClot Combat Gauze</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Wound packing materials</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Personal walkthrough of every kit item with Easton</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Walk out fully equipped and ready</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section testimonials-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="eyebrow">Student Reviews</span>
+        <h2 class="section-heading">Our Students Walk Away With Skills That Could Save a Life. Maybe Even Their Own.</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+          <div class="stars">
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-quote">"As a teacher, I never thought I'd be capable of responding to a real emergency. Iron Rescue changed that completely. I left feeling confident, trained, and ready."</p>
+          <div class="testimonial-author">Jessica M.</div>
+          <div class="testimonial-course">School Emergency Medical Care</div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <div class="stars">
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-quote">"Highly recommend Iron Rescue! Easton and Sam are knowledgeable, supportive instructors who make learning engaging and confidence-building. I feel more skilled, prepared, and excited."</p>
+          <div class="testimonial-author">Patty R.</div>
+          <div class="testimonial-course">TECC For First Responders</div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <div class="stars">
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-quote">"The way Easton teaches is engaging and fun. I left with real skills I'll actually remember under pressure — not just a certificate. Every educator should take this course."</p>
+          <div class="testimonial-author">Derek T.</div>
+          <div class="testimonial-course">School Emergency Medical Care</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="final-cta-bg">
+      <img src="images/course-2.jpg" alt="School emergency background" />
+    </div>
+    <div class="final-cta-content fade-in">
+      <h2 class="final-cta-headline">Your Students Are Counting on You.</h2>
+      <p class="final-cta-subhead">Be Ready When It Matters.</p>
+      <p class="final-cta-body">One class. Real skills. The confidence to protect the people in your care.</p>
+      <a href="index.html#courses" class="btn btn-red">Find Your Course</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="margin-bottom: 16px; display: inline-flex; color: white;">
+            <div class="nav-logo-mark">
+              <svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M19.07 4.93l-4.24 4.24M9.17 14.83l-4.24 4.24" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+            </div>
+            IRON RESCUE
+          </a>
+          <p class="footer-tagline">Safety at home, in action, and in the wild.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-heading">Courses</div>
+          <ul class="footer-links">
+            <li><a href="mass-casualty-trauma-response.html">Mass Casualty Trauma Response</a></li>
+            <li><a href="school-emergency-medical-care.html">School Emergency Medical Care</a></li>
+            <li><a href="wilderness-medicine.html">Wilderness Medicine</a></li>
+            <li><a href="tactical-emergency-casualty-care.html">Tactical Emergency Casualty Care</a></li>
+            <li><a href="home-emergency-preparedness.html">Home Emergency Preparedness</a></li>
+            <li><a href="workplace-safety-and-response.html">Workplace Safety and Response</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="#">Affiliates</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2024 Iron Rescue PLLC. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.hero .fade-in').forEach(el => el.classList.add('visible'));
+
+    document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const dropdown = link.closest('.nav-dropdown');
+        const isOpen = dropdown.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        if (!isOpen) dropdown.classList.add('open');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+
+    const mobileCoursesToggle = document.getElementById('mobileCoursesToggle');
+    const mobileCoursesList = document.getElementById('mobileCoursesList');
+    const mobileCoursesArrow = document.getElementById('mobileCoursesArrow');
+    if (mobileCoursesToggle) {
+      mobileCoursesToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const open = mobileCoursesList.style.display === 'flex';
+        mobileCoursesList.style.display = open ? 'none' : 'flex';
+        mobileCoursesArrow.style.transform = open ? '' : 'rotate(180deg)';
+      });
+    }
+
+    mobileMenu.querySelectorAll('a:not(#mobileCoursesToggle)').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
