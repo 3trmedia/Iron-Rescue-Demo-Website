@@ -6,7 +6,7 @@
   <title>Iron Rescue — Tactical Emergency Casualty Care Training</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -28,7 +28,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: 16px;
       color: var(--dark);
       background: var(--white);
@@ -36,8 +36,11 @@
     }
 
     h1, h2, h3, h4 {
-      font-family: 'DM Serif Display', serif;
-      line-height: 1.15;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
     }
 
     img { display: block; max-width: 100%; }
@@ -62,7 +65,7 @@
       gap: 8px;
       padding: 14px 28px;
       border-radius: 4px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: 15px;
       font-weight: 600;
       letter-spacing: 0.02em;
@@ -104,9 +107,9 @@
     /* ── EYEBROW LABEL ── */
     .eyebrow {
       display: inline-block;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--red-accent);
       margin-bottom: 14px;
@@ -151,7 +154,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 0.05em;
@@ -182,6 +185,7 @@
     }
 
     .nav-links a {
+      font-family: 'Barlow', sans-serif;
       font-size: 14px;
       font-weight: 500;
       color: var(--gray);
@@ -309,10 +313,10 @@
        CREDIBILITY BAR
     ════════════════════════════════════ */
     .cred-bar {
-      background: var(--off-white);
+      background: var(--red);
       padding: 48px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      border-top: none;
+      border-bottom: none;
     }
 
     .cred-grid {
@@ -334,14 +338,16 @@
       top: 20%;
       height: 60%;
       width: 1px;
-      background: var(--red);
-      opacity: 0.3;
+      background: rgba(255,255,255,0.3);
     }
 
     .cred-label {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Barlow Condensed', sans-serif;
       font-size: 22px;
-      color: var(--dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--white);
       margin-bottom: 6px;
     }
 
@@ -350,7 +356,7 @@
       font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--gray);
+      color: rgba(255,255,255,0.65);
     }
 
     /* ════════════════════════════════════
@@ -382,22 +388,30 @@
       bottom: -12px;
       width: 60%;
       height: 60%;
-      border: 3px solid var(--red);
+      border: 3px solid rgba(255,255,255,0.35);
       border-radius: 4px;
       z-index: -1;
     }
 
+    .training-section-red {
+      background: var(--red);
+    }
+
     .training-heading {
       font-size: clamp(28px, 3vw, 42px);
-      color: var(--dark);
+      color: var(--white);
       margin-bottom: 16px;
     }
 
     .training-subhead {
       font-size: 16px;
       line-height: 1.7;
-      color: var(--gray);
+      color: rgba(255,255,255,0.75);
       margin-bottom: 40px;
+    }
+
+    .training-eyebrow {
+      color: rgba(255,255,255,0.65) !important;
     }
 
     .feature-list {
@@ -414,7 +428,7 @@
     .feature-icon {
       width: 40px;
       height: 40px;
-      background: rgba(139,26,26,0.08);
+      background: rgba(255,255,255,0.12);
       border-radius: 4px;
       display: flex;
       align-items: center;
@@ -425,7 +439,7 @@
     .feature-icon svg {
       width: 20px;
       height: 20px;
-      stroke: var(--red-accent);
+      stroke: var(--white);
       fill: none;
       stroke-width: 2;
       stroke-linecap: round;
@@ -435,14 +449,14 @@
     .feature-title {
       font-size: 16px;
       font-weight: 700;
-      color: var(--dark);
+      color: var(--white);
       margin-bottom: 4px;
     }
 
     .feature-desc {
       font-size: 14px;
       line-height: 1.65;
-      color: var(--gray);
+      color: rgba(255,255,255,0.72);
     }
 
     /* ════════════════════════════════════
@@ -459,6 +473,10 @@
       font-size: clamp(28px, 3vw, 44px);
       color: var(--dark);
       margin-bottom: 16px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
     }
 
     .section-subhead {
@@ -500,7 +518,7 @@
     }
 
     .course-card:hover .course-overlay {
-      background: linear-gradient(to top, rgba(139,26,26,0.9) 0%, rgba(139,26,26,0.5) 60%, rgba(139,26,26,0.15) 100%);
+      background: rgba(139,26,26,0.85);
     }
 
     .course-card-content {
@@ -606,6 +624,14 @@
 
     .faq-item {
       border-bottom: 1px solid var(--border);
+      border-left: 3px solid transparent;
+      transition: border-left-color 0.25s ease;
+      padding-left: 0;
+    }
+
+    .faq-item.open {
+      border-left-color: var(--red-accent);
+      padding-left: 16px;
     }
 
     .faq-question {
@@ -622,7 +648,7 @@
     }
 
     .faq-question-text {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Barlow', sans-serif;
       font-size: 17px;
       font-weight: 600;
       color: var(--dark);
@@ -653,13 +679,17 @@
     }
 
     .faq-item.open .faq-icon {
-      background: var(--red);
-      border-color: var(--red);
+      background: var(--red-accent);
+      border-color: var(--red-accent);
     }
 
     .faq-item.open .faq-icon svg {
       stroke: var(--white);
       transform: rotate(45deg);
+    }
+
+    .faq-item.open .faq-question-text {
+      color: var(--red-accent);
     }
 
     .faq-answer {
@@ -936,14 +966,14 @@
   </div>
 
   <!-- TRAINING / ABOUT -->
-  <section class="section" id="about">
+  <section class="section training-section-red" id="about">
     <div class="container">
       <div class="training-grid">
         <div class="training-photo fade-in">
           <img src="images/about-photo.jpg" alt="Iron Rescue hands-on training" />
         </div>
         <div class="fade-in">
-          <span class="eyebrow">The Training</span>
+          <span class="eyebrow training-eyebrow">The Training</span>
           <h2 class="training-heading">Walk In Unprepared. Walk Out Unstoppable.</h2>
           <p class="training-subhead">We don't just teach theory. We put you in the scenario and coach you through it in real time.</p>
           <div class="feature-list">
