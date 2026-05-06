@@ -260,6 +260,20 @@
       justify-content: center;
       padding: 60px 64px 60px 0;
       padding-left: calc((100vw - 1200px) / 2 + 40px);
+      position: relative;
+      overflow: hidden;
+      background-color: var(--off-white);
+    }
+
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('images/hero-action.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      pointer-events: none;
     }
 
     .hero-headline {
@@ -932,7 +946,7 @@
       </div>
     </div>
     <div class="hero-image">
-      <img src="images/hero-action.jpg" alt="Tactical emergency casualty care training" />
+      <img src="images/hero-right.jpg" alt="Tactical emergency casualty care training" />
     </div>
   </section>
 
