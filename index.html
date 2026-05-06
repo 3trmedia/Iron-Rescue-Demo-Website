@@ -249,7 +249,7 @@
     ════════════════════════════════════ */
     .hero {
       margin-top: 72px;
-      min-height: calc(100vh - 72px);
+      height: 600px;
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
@@ -258,7 +258,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 80px 64px 80px 0;
+      padding: 60px 64px 60px 0;
       padding-left: calc((100vw - 1200px) / 2 + 40px);
     }
 
@@ -388,30 +388,22 @@
       bottom: -12px;
       width: 60%;
       height: 60%;
-      border: 3px solid rgba(255,255,255,0.35);
+      border: 3px solid var(--red);
       border-radius: 4px;
       z-index: -1;
     }
 
-    .training-section-red {
-      background: var(--red);
-    }
-
     .training-heading {
       font-size: clamp(28px, 3vw, 42px);
-      color: var(--white);
+      color: var(--dark);
       margin-bottom: 16px;
     }
 
     .training-subhead {
       font-size: 16px;
       line-height: 1.7;
-      color: rgba(255,255,255,0.75);
+      color: var(--gray);
       margin-bottom: 40px;
-    }
-
-    .training-eyebrow {
-      color: rgba(255,255,255,0.65) !important;
     }
 
     .feature-list {
@@ -428,7 +420,7 @@
     .feature-icon {
       width: 40px;
       height: 40px;
-      background: rgba(255,255,255,0.12);
+      background: rgba(139,26,26,0.08);
       border-radius: 4px;
       display: flex;
       align-items: center;
@@ -439,7 +431,7 @@
     .feature-icon svg {
       width: 20px;
       height: 20px;
-      stroke: var(--white);
+      stroke: var(--red-accent);
       fill: none;
       stroke-width: 2;
       stroke-linecap: round;
@@ -449,14 +441,14 @@
     .feature-title {
       font-size: 16px;
       font-weight: 700;
-      color: var(--white);
+      color: var(--dark);
       margin-bottom: 4px;
     }
 
     .feature-desc {
       font-size: 14px;
       line-height: 1.65;
-      color: rgba(255,255,255,0.72);
+      color: var(--gray);
     }
 
     /* ════════════════════════════════════
@@ -530,7 +522,10 @@
     }
 
     .course-card-title {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       font-size: 20px;
       color: var(--white);
       margin-bottom: 12px;
@@ -966,14 +961,14 @@
   </div>
 
   <!-- TRAINING / ABOUT -->
-  <section class="section training-section-red" id="about">
+  <section class="section" id="about">
     <div class="container">
       <div class="training-grid">
         <div class="training-photo fade-in">
           <img src="images/about-photo.jpg" alt="Iron Rescue hands-on training" />
         </div>
         <div class="fade-in">
-          <span class="eyebrow training-eyebrow">The Training</span>
+          <span class="eyebrow">The Training</span>
           <h2 class="training-heading">Walk In Unprepared. Walk Out Unstoppable.</h2>
           <p class="training-subhead">We don't just teach theory. We put you in the scenario and coach you through it in real time.</p>
           <div class="feature-list">
