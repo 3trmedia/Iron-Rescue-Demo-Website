@@ -361,27 +361,7 @@
     /* ════════════════════════════════════
        WHAT YOU'LL MASTER
     ════════════════════════════════════ */
-    .master-section {
-      position: relative;
-      background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-
-    .master-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255,255,255,0.88);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .master-section .container {
-      position: relative;
-      z-index: 1;
-    }
+    .master-section { background: #F8F8F8; }
 
     .master-heading {
       font-size: clamp(28px, 3vw, 40px);
@@ -397,7 +377,14 @@
       margin-bottom: 56px;
     }
 
-    .master-item { display: flex; gap: 16px; }
+    .master-item {
+      display: flex;
+      gap: 16px;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      padding: 24px;
+    }
 
     .master-icon {
       width: 40px; height: 40px;
