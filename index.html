@@ -147,7 +147,14 @@
       height: 72px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 0;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-left: auto;
     }
 
     .nav-logo {
@@ -182,6 +189,7 @@
       align-items: center;
       gap: 32px;
       list-style: none;
+      margin-right: 32px;
     }
 
     .nav-links a {
@@ -195,7 +203,7 @@
 
     .nav-links a:hover { color: var(--dark); }
 
-    .nav-cta { margin-left: 16px; }
+    .nav-cta { margin-left: 0; }
 
     .hamburger {
       display: none;
@@ -873,7 +881,7 @@
     }
 
     @media (max-width: 768px) {
-      .nav-links, .nav-cta { display: none; }
+      .nav-right { display: none; }
       .hamburger { display: flex; }
       .container { padding: 0 24px; }
       .nav-inner { padding: 0 24px; }
@@ -901,14 +909,16 @@
         </div>
         IRON RESCUE
       </a>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#">Affiliates</a></li>
-      </ul>
-      <a href="#courses" class="btn btn-red nav-cta" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Affiliates</a></li>
+        </ul>
+        <a href="#courses" class="btn btn-red nav-cta" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
+      </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
