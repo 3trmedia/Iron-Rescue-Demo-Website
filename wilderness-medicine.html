@@ -220,7 +220,10 @@
       z-index: 999;
     }
 
-    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown.open .dropdown-menu { display: block; }
+
+    .nav-dropdown.open > a::after { transform: rotate(180deg); }
 
     .dropdown-menu a {
       display: block;
@@ -756,24 +759,35 @@
     ════════════════════════════════════ */
     @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; height: auto; }
-      .hero-content { padding: 80px 40px; }
-      .hero-image { height: 420px; }
+      .hero-image { order: -1; height: 340px; }
+      .hero-content { padding: 56px 40px; }
       .structure-grid { grid-template-columns: 1fr; gap: 48px; }
-      .structure-photo img { height: 360px; }
+      .structure-photo img { height: 320px; }
       .master-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
       .nav-right { display: none; }
       .hamburger { display: flex; }
-      .container { padding: 0 24px; }
-      .nav-inner { padding: 0 24px; }
-      .section { padding: 72px 0; }
-      .hero-content { padding: 60px 24px; }
+      .container { padding: 0 20px; }
+      .nav-inner { padding: 0 20px; }
+      .section { padding: 60px 0; }
+      .hero-image { height: 260px; }
+      .hero-content { padding: 48px 20px; }
+      .hero-headline { font-size: 30px; }
       .master-grid { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .final-cta { padding: 80px 0; }
+      .final-cta-content { padding: 0 20px; }
+      .section-heading { font-size: 26px; }
+      .structure-heading { font-size: 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; }
     }
   </style>
 </head>
@@ -821,21 +835,24 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li>
-        <a href="index.html#courses">Courses</a>
-        <div class="mobile-courses">
-          <a href="mass-casualty-trauma-response.html">Mass Casualty Trauma Response</a>
-          <a href="school-emergency-medical-care.html">School Emergency Medical Care</a>
-          <a href="wilderness-medicine.html">Wilderness Medicine</a>
-          <a href="tactical-emergency-casualty-care.html">Tactical Emergency Casualty Care</a>
-          <a href="home-emergency-preparedness.html">Home Emergency Preparedness</a>
-          <a href="workplace-safety-and-response.html">Workplace Safety and Response</a>
-        </div>
+        <a href="#" id="mobileCoursesToggle" style="display:flex;justify-content:space-between;align-items:center;">
+          Courses
+          <span id="mobileCoursesArrow" style="font-size:11px;transition:transform 0.2s;">▼</span>
+        </a>
+        <ul id="mobileCoursesList" style="display:none;list-style:none;padding-left:16px;margin-top:12px;gap:12px;flex-direction:column;">
+          <li><a href="mass-casualty-trauma-response.html" style="font-size:14px;color:var(--gray);">Mass Casualty Trauma Response</a></li>
+          <li><a href="school-emergency-medical-care.html" style="font-size:14px;color:var(--gray);">School Emergency Medical Care</a></li>
+          <li><a href="wilderness-medicine.html" style="font-size:14px;color:var(--red);font-weight:600;">Wilderness Medicine</a></li>
+          <li><a href="tactical-emergency-casualty-care.html" style="font-size:14px;color:var(--gray);">Tactical Emergency Casualty Care</a></li>
+          <li><a href="home-emergency-preparedness.html" style="font-size:14px;color:var(--gray);">Home Emergency Preparedness</a></li>
+          <li><a href="workplace-safety-and-response.html" style="font-size:14px;color:var(--gray);">Workplace Safety and Response</a></li>
+        </ul>
       </li>
       <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#contact">Contact</a></li>
       <li><a href="#">Affiliates</a></li>
     </ul>
-    <a href="#pricing" class="btn btn-red" style="width: 100%; justify-content: center;">Get Certified</a>
+    <a href="#pricing" class="btn btn-red" style="width: 100%; justify-content: center; margin-top: 8px;">Get Certified</a>
   </div>
 
   <!-- HERO -->
@@ -1125,10 +1142,42 @@
 
     document.querySelectorAll('.hero .fade-in').forEach(el => el.classList.add('visible'));
 
+    // Desktop dropdown — click toggles, no navigation
+    document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const dropdown = link.closest('.nav-dropdown');
+        const isOpen = dropdown.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        if (!isOpen) dropdown.classList.add('open');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+      }
+    });
+
+    // Hamburger
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-    mobileMenu.querySelectorAll('a').forEach(link => {
+
+    // Mobile courses sub-menu
+    const mobileCoursesToggle = document.getElementById('mobileCoursesToggle');
+    const mobileCoursesList = document.getElementById('mobileCoursesList');
+    const mobileCoursesArrow = document.getElementById('mobileCoursesArrow');
+    if (mobileCoursesToggle) {
+      mobileCoursesToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const open = mobileCoursesList.style.display === 'flex';
+        mobileCoursesList.style.display = open ? 'none' : 'flex';
+        mobileCoursesArrow.style.transform = open ? '' : 'rotate(180deg)';
+      });
+    }
+
+    mobileMenu.querySelectorAll('a:not(#mobileCoursesToggle)').forEach(link => {
       link.addEventListener('click', () => mobileMenu.classList.remove('open'));
     });
   </script>

@@ -245,8 +245,14 @@
       z-index: 999;
     }
 
-    .nav-dropdown:hover .dropdown-menu {
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown.open .dropdown-menu {
       display: block;
+    }
+
+    .nav-dropdown.open > a::after,
+    .nav-dropdown:hover > a::after {
+      transform: rotate(180deg);
     }
 
     .dropdown-menu a {
@@ -930,31 +936,77 @@
        RESPONSIVE
     ════════════════════════════════════ */
     @media (max-width: 1024px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+      .hero-image {
+        order: -1;
+        height: 340px;
+      }
       .hero-content {
-        padding: 80px 40px;
+        padding: 56px 40px;
         padding-left: 40px;
       }
-      .hero-image { height: 420px; }
       .training-grid { grid-template-columns: 1fr; gap: 48px; }
       .training-photo { order: -1; }
-      .training-photo img { height: 400px; }
+      .training-photo img { height: 360px; }
       .courses-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
       .nav-right { display: none; }
       .hamburger { display: flex; }
-      .container { padding: 0 24px; }
-      .nav-inner { padding: 0 24px; }
-      .section { padding: 72px 0; }
-      .cred-grid { grid-template-columns: repeat(2, 1fr); }
-      .cred-item:nth-child(2)::after { display: none; }
+      .container { padding: 0 20px; }
+      .nav-inner { padding: 0 20px; }
+      .section { padding: 60px 0; }
+
+      /* Hero */
+      .hero-image { height: 280px; }
+      .hero-content { padding: 48px 20px; }
+      .hero-headline { font-size: 32px; }
+      .hero-body { max-width: 100%; }
+
+      /* Cred bar */
+      .cred-bar { padding: 36px 0; }
+      .cred-grid { grid-template-columns: repeat(2, 1fr); gap: 0; }
+      .cred-item { padding: 16px 16px; }
+      .cred-item:nth-child(2)::after,
       .cred-item:nth-child(4)::after { display: none; }
+      .cred-label { font-size: 16px; }
+
+      /* About/Training */
+      .training-photo img { height: 280px; }
+
+      /* Courses */
       .courses-grid { grid-template-columns: 1fr; }
+      .course-card { aspect-ratio: 16/9; }
+
+      /* Testimonials */
       .testimonials-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-      .hero-content { padding: 64px 24px; }
+
+      /* FAQ */
+      .faq-question-text { font-size: 15px; }
+
+      /* Final CTA */
+      .final-cta { padding: 80px 0; }
+      .final-cta-content { padding: 0 20px; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      footer { padding: 56px 0 0; }
+
+      /* Section headings */
+      .section-heading { font-size: 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; }
+      .cred-grid { grid-template-columns: 1fr; }
+      .cred-item::after { display: none !important; }
+      .cred-item { border-bottom: 1px solid rgba(255,255,255,0.15); padding: 20px 0; }
+      .cred-item:last-child { border-bottom: none; }
     }
   </style>
 </head>
@@ -1000,13 +1052,26 @@
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <ul>
-      <li><a href="#home">Home</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="#" id="mobileCoursesToggle" style="display:flex;justify-content:space-between;align-items:center;">
+          Courses
+          <span id="mobileCoursesArrow" style="font-size:11px;transition:transform 0.2s;">▼</span>
+        </a>
+        <ul id="mobileCoursesList" style="display:none;list-style:none;padding-left:16px;margin-top:12px;gap:12px;flex-direction:column;">
+          <li><a href="mass-casualty-trauma-response.html" style="font-size:14px;color:var(--gray);">Mass Casualty Trauma Response</a></li>
+          <li><a href="school-emergency-medical-care.html" style="font-size:14px;color:var(--gray);">School Emergency Medical Care</a></li>
+          <li><a href="wilderness-medicine.html" style="font-size:14px;color:var(--gray);">Wilderness Medicine</a></li>
+          <li><a href="tactical-emergency-casualty-care.html" style="font-size:14px;color:var(--gray);">Tactical Emergency Casualty Care</a></li>
+          <li><a href="home-emergency-preparedness.html" style="font-size:14px;color:var(--gray);">Home Emergency Preparedness</a></li>
+          <li><a href="workplace-safety-and-response.html" style="font-size:14px;color:var(--gray);">Workplace Safety and Response</a></li>
+        </ul>
+      </li>
       <li><a href="#about">About</a></li>
-      <li><a href="#courses">Courses</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#">Affiliates</a></li>
     </ul>
-    <a href="#courses" class="btn btn-red" style="width: 100%; justify-content: center;">Get Certified</a>
+    <a href="#courses" class="btn btn-red" style="width: 100%; justify-content: center; margin-top: 8px;">Get Certified</a>
   </div>
 
   <!-- HERO -->
@@ -1353,20 +1418,47 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Hero content visible immediately
-    document.querySelectorAll('.hero .fade-in').forEach(el => {
-      el.classList.add('visible');
+    // Hero visible immediately
+    document.querySelectorAll('.hero .fade-in').forEach(el => el.classList.add('visible'));
+
+    // Desktop dropdown — click toggles open, prevents navigation
+    document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const dropdown = link.closest('.nav-dropdown');
+        const isOpen = dropdown.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        if (!isOpen) dropdown.classList.add('open');
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+      }
     });
 
     // Hamburger menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
 
-    // Close mobile menu on link click
-    mobileMenu.querySelectorAll('a').forEach(link => {
+    // Mobile courses sub-menu toggle
+    const mobileCoursesToggle = document.getElementById('mobileCoursesToggle');
+    const mobileCoursesList = document.getElementById('mobileCoursesList');
+    const mobileCoursesArrow = document.getElementById('mobileCoursesArrow');
+    if (mobileCoursesToggle) {
+      mobileCoursesToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const open = mobileCoursesList.style.display === 'flex';
+        mobileCoursesList.style.display = open ? 'none' : 'flex';
+        mobileCoursesArrow.style.transform = open ? '' : 'rotate(180deg)';
+      });
+    }
+
+    // Close mobile menu when a non-toggle link is clicked
+    mobileMenu.querySelectorAll('a:not(#mobileCoursesToggle)').forEach(link => {
       link.addEventListener('click', () => mobileMenu.classList.remove('open'));
     });
 
@@ -1375,9 +1467,7 @@
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
         const isOpen = item.classList.contains('open');
-        // Close all
         document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-        // Open clicked if it was closed
         if (!isOpen) item.classList.add('open');
       });
     });
