@@ -361,7 +361,27 @@
     /* ════════════════════════════════════
        WHAT YOU'LL MASTER
     ════════════════════════════════════ */
-    .master-section { background: var(--off-white); }
+    .master-section {
+      position: relative;
+      background-image: url('https://source.unsplash.com/Md6_qA-BMis/1920x1080');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .master-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.92);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .master-section .container {
+      position: relative;
+      z-index: 1;
+    }
 
     .master-heading {
       font-size: clamp(28px, 3vw, 40px);
