@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iron Rescue — Tactical Emergency Casualty Care Training</title>
+  <title>Iron Rescue | Tactical Emergency Casualty Care Training</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -643,45 +643,6 @@
     .course-card:hover .course-card-link svg { transform: translateX(4px); }
 
     /* ════════════════════════════════════
-       TECC CORE OFFER
-    ════════════════════════════════════ */
-    .tecc-core-section { background: var(--white); }
-
-    .tecc-core-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .tecc-core-headline {
-      font-size: clamp(30px, 3.5vw, 48px);
-      color: var(--dark);
-      margin-bottom: 20px;
-    }
-
-    .tecc-core-body {
-      font-size: 17px;
-      line-height: 1.75;
-      color: var(--gray);
-      margin-bottom: 36px;
-      max-width: 480px;
-    }
-
-    .tecc-core-image {
-      position: relative;
-      border-radius: 6px;
-      overflow: hidden;
-    }
-
-    .tecc-core-image img {
-      width: 100%;
-      height: 480px;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ════════════════════════════════════
        SKILLS MAINTENANCE
     ════════════════════════════════════ */
     .skills-section { background: #F5F5F5; }
@@ -1031,9 +992,6 @@
       .training-photo { order: -1; }
       .training-photo img { height: 360px; }
       .courses-grid { grid-template-columns: repeat(2, 1fr); }
-      .tecc-core-grid { grid-template-columns: 1fr; gap: 48px; }
-      .tecc-core-image { order: -1; }
-      .tecc-core-image img { height: 360px; }
       .skills-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -1064,7 +1022,6 @@
       /* Courses */
       .courses-grid { grid-template-columns: 1fr; }
       .course-card { aspect-ratio: 16/9; }
-      .tecc-core-image img { height: 280px; }
       .skills-grid { grid-template-columns: 1fr; }
       .skills-card { aspect-ratio: 16/9; }
 
@@ -1115,19 +1072,16 @@
           <li class="nav-dropdown">
             <a href="#courses">Courses</a>
             <div class="dropdown-menu">
-              <a href="mass-casualty-trauma-response.html">Mass Casualty Trauma Response</a>
-              <a href="school-emergency-medical-care.html">School Emergency Medical Care</a>
-              <a href="wilderness-medicine.html">Wilderness Medicine</a>
-              <a href="tactical-emergency-casualty-care.html">Tactical Emergency Casualty Care</a>
-              <a href="home-emergency-preparedness.html">Home Emergency Preparedness</a>
-              <a href="workplace-safety-and-response.html">Workplace Safety and Response</a>
+                            <a href="tactical-emergency-casualty-care.html">TECC Certification</a>
+              <a href="scenario-training.html">Scenario Training</a>
+              <a href="#">Stop The Bleed</a>
             </div>
           </li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="#">Affiliates</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
         </ul>
-        <a href="#courses" class="btn btn-red nav-cta" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
+        <a href="tactical-emergency-casualty-care.html" class="btn btn-red nav-cta" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -1145,19 +1099,16 @@
           <span id="mobileCoursesArrow" style="font-size:11px;transition:transform 0.2s;">▼</span>
         </a>
         <ul id="mobileCoursesList" style="display:none;list-style:none;padding-left:16px;margin-top:12px;gap:12px;flex-direction:column;">
-          <li><a href="mass-casualty-trauma-response.html" style="font-size:14px;color:var(--gray);">Mass Casualty Trauma Response</a></li>
-          <li><a href="school-emergency-medical-care.html" style="font-size:14px;color:var(--gray);">School Emergency Medical Care</a></li>
-          <li><a href="wilderness-medicine.html" style="font-size:14px;color:var(--gray);">Wilderness Medicine</a></li>
-          <li><a href="tactical-emergency-casualty-care.html" style="font-size:14px;color:var(--gray);">Tactical Emergency Casualty Care</a></li>
-          <li><a href="home-emergency-preparedness.html" style="font-size:14px;color:var(--gray);">Home Emergency Preparedness</a></li>
-          <li><a href="workplace-safety-and-response.html" style="font-size:14px;color:var(--gray);">Workplace Safety and Response</a></li>
+          <li><a href="tactical-emergency-casualty-care.html" style="font-size:14px;color:var(--gray);">TECC Certification</a></li>
+          <li><a href="scenario-training.html" style="font-size:14px;color:var(--gray);">Scenario Training</a></li>
+          <li><a href="#" style="font-size:14px;color:var(--gray);">Stop The Bleed</a></li>
         </ul>
       </li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="#">Affiliates</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
     </ul>
-    <a href="#courses" class="btn btn-red" style="width: 100%; justify-content: center; margin-top: 8px;">Get Certified</a>
+    <a href="tactical-emergency-casualty-care.html" class="btn btn-red" style="width: 100%; justify-content: center; margin-top: 8px;">Get Certified</a>
   </div>
 
   <!-- HERO -->
@@ -1166,9 +1117,9 @@
       <span class="eyebrow">Utah's Leading TECC Provider</span>
       <h1 class="hero-headline">When Lives Are On The Line, Be The One Who Steps Up</h1>
       <p class="hero-subhead">Don't be another passive bystander. Save a life.</p>
-      <p class="hero-body">One day of hands-on training could be the difference between life and death for someone you love. Iron Rescue is Utah's leading TECC provider — built for everyday people, not just first responders.</p>
+      <p class="hero-body">One day of hands-on training could be the difference between life and death for someone you love. Iron Rescue is Utah's leading TECC provider, built for everyday people, not just first responders.</p>
       <div class="hero-btns">
-        <a href="#courses" class="btn btn-red">Get Certified</a>
+        <a href="tactical-emergency-casualty-care.html" class="btn btn-red">Get Certified</a>
         <a href="#courses" class="btn btn-ghost">View Courses</a>
       </div>
     </div>
@@ -1209,7 +1160,7 @@
           <img src="images/about-photo.jpg" alt="Iron Rescue hands-on training" />
         </div>
         <div class="fade-in">
-          <span class="eyebrow">The Training</span>
+          <span class="eyebrow">TECC Certification</span>
           <h2 class="training-heading">Walk In Unprepared. Walk Out Unstoppable.</h2>
           <p class="training-subhead">We don't just teach theory. We put you in the scenario and coach you through it in real time.</p>
           <div class="feature-list">
@@ -1241,30 +1192,17 @@
               </div>
             </div>
           </div>
+          <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:40px;">
+            <a href="tactical-emergency-casualty-care.html" class="btn btn-red">Get Certified</a>
+            <a href="tactical-emergency-casualty-care.html" class="btn btn-ghost">Learn More</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION A: TECC CORE OFFER -->
-  <section class="section tecc-core-section" id="courses">
-    <div class="container">
-      <div class="tecc-core-grid">
-        <div class="fade-in">
-          <span class="eyebrow">TECC Certification</span>
-          <h2 class="tecc-core-headline">The Course That Changes Everything</h2>
-          <p class="tecc-core-body">Tactical Emergency Casualty Care is the gold standard in civilian trauma training. One day of hands-on, scenario-based instruction — and you walk out with a nationally recognized certification and the skills to save a life when it matters most. No medical background required.</p>
-          <a href="tactical-emergency-casualty-care.html" class="btn btn-red">Get Certified</a>
-        </div>
-        <div class="tecc-core-image fade-in">
-          <img src="images/course-4.jpg" alt="Tactical Emergency Casualty Care certification training" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION B: SKILLS MAINTENANCE -->
-  <section class="section skills-section">
+  <!-- SKILLS MAINTENANCE -->
+  <section class="section skills-section" id="courses">
     <div class="container">
       <div class="section-header fade-in">
         <span class="eyebrow">Skills Maintenance</span>
@@ -1388,7 +1326,7 @@
             </span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">This is TECC — Tactical Emergency Casualty Care. It goes far beyond CPR, teaching you to control life-threatening bleeding, manage airways, stabilize injuries, and keep someone alive until EMS arrives. It's built for real emergencies, not just checkboxes.</div>
+            <div class="faq-answer-inner">This is TECC, Tactical Emergency Casualty Care. It goes far beyond CPR, teaching you to control life-threatening bleeding, manage airways, stabilize injuries, and keep someone alive until EMS arrives. It's built for real emergencies, not just checkboxes.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1496,7 +1434,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#courses">Courses</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#">Affiliates</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
           </ul>
         </div>
       </div>
@@ -1524,7 +1462,7 @@
     // Hero visible immediately
     document.querySelectorAll('.hero .fade-in').forEach(el => el.classList.add('visible'));
 
-    // Desktop dropdown — click toggles open, prevents navigation
+    // Desktop dropdown, click toggles open, prevents navigation
     document.querySelectorAll('.nav-dropdown > a').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
