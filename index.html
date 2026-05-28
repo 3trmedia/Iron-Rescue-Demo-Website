@@ -643,6 +643,84 @@
     .course-card:hover .course-card-link svg { transform: translateX(4px); }
 
     /* ════════════════════════════════════
+       TECC CORE OFFER
+    ════════════════════════════════════ */
+    .tecc-core-section { background: var(--white); }
+
+    .tecc-core-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .tecc-core-headline {
+      font-size: clamp(30px, 3.5vw, 48px);
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+
+    .tecc-core-body {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--gray);
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    .tecc-core-image {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .tecc-core-image img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ════════════════════════════════════
+       SKILLS MAINTENANCE
+    ════════════════════════════════════ */
+    .skills-section { background: #F5F5F5; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skills-card {
+      display: block;
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      cursor: pointer;
+    }
+
+    .skills-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .skills-card:hover img { transform: scale(1.06); }
+
+    .skills-card .course-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 40%, transparent 60%);
+    }
+
+    .skills-card:hover .course-overlay {
+      background: rgba(139,26,26,0.80);
+    }
+
+    .skills-card .course-card-title { font-size: 17px; }
+
+    /* ════════════════════════════════════
        TESTIMONIALS
     ════════════════════════════════════ */
     .testimonials-section { background: var(--off-white); }
@@ -953,6 +1031,10 @@
       .training-photo { order: -1; }
       .training-photo img { height: 360px; }
       .courses-grid { grid-template-columns: repeat(2, 1fr); }
+      .tecc-core-grid { grid-template-columns: 1fr; gap: 48px; }
+      .tecc-core-image { order: -1; }
+      .tecc-core-image img { height: 360px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
@@ -982,6 +1064,9 @@
       /* Courses */
       .courses-grid { grid-template-columns: 1fr; }
       .course-card { aspect-ratio: 16/9; }
+      .tecc-core-image img { height: 280px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skills-card { aspect-ratio: 16/9; }
 
       /* Testimonials */
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -1161,16 +1246,33 @@
     </div>
   </section>
 
-  <!-- COURSES -->
-  <section class="section courses-section" id="courses" style="background: var(--off-white);">
+  <!-- SECTION A: TECC CORE OFFER -->
+  <section class="section tecc-core-section" id="courses">
+    <div class="container">
+      <div class="tecc-core-grid">
+        <div class="fade-in">
+          <span class="eyebrow">TECC Certification</span>
+          <h2 class="tecc-core-headline">The Course That Changes Everything</h2>
+          <p class="tecc-core-body">Tactical Emergency Casualty Care is the gold standard in civilian trauma training. One day of hands-on, scenario-based instruction — and you walk out with a nationally recognized certification and the skills to save a life when it matters most. No medical background required.</p>
+          <a href="tactical-emergency-casualty-care.html" class="btn btn-red">Get Certified</a>
+        </div>
+        <div class="tecc-core-image fade-in">
+          <img src="images/course-4.jpg" alt="Tactical Emergency Casualty Care certification training" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION B: SKILLS MAINTENANCE -->
+  <section class="section skills-section">
     <div class="container">
       <div class="section-header fade-in">
-        <span class="eyebrow">Our Courses</span>
-        <h2 class="section-heading">Find Your Next Course</h2>
-        <p class="section-subhead">Every course is built for everyday people. No medical background required.</p>
+        <span class="eyebrow">Skills Maintenance</span>
+        <h2 class="section-heading">Keep Your Edge</h2>
+        <p class="section-subhead">Already TECC certified? These courses are built for certified students who want to apply their skills across new environments and scenarios.</p>
       </div>
-      <div class="courses-grid">
-        <a href="mass-casualty-trauma-response.html" class="course-card fade-in">
+      <div class="skills-grid">
+        <a href="mass-casualty-trauma-response.html" class="skills-card fade-in">
           <img src="images/course-1.jpg" alt="Mass Casualty Trauma Response" />
           <div class="course-overlay"></div>
           <div class="course-card-content">
@@ -1178,7 +1280,7 @@
             <span class="course-card-link">Learn More <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
           </div>
         </a>
-        <a href="school-emergency-medical-care.html" class="course-card fade-in">
+        <a href="school-emergency-medical-care.html" class="skills-card fade-in">
           <img src="images/course-2.jpg" alt="School Emergency Medical Care" />
           <div class="course-overlay"></div>
           <div class="course-card-content">
@@ -1186,7 +1288,7 @@
             <span class="course-card-link">Learn More <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
           </div>
         </a>
-        <a href="wilderness-medicine.html" class="course-card fade-in">
+        <a href="wilderness-medicine.html" class="skills-card fade-in">
           <img src="images/course-3.jpg" alt="Wilderness Medicine" />
           <div class="course-overlay"></div>
           <div class="course-card-content">
@@ -1194,7 +1296,7 @@
             <span class="course-card-link">Learn More <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
           </div>
         </a>
-        <a href="tactical-emergency-casualty-care.html" class="course-card fade-in">
+        <a href="tactical-emergency-casualty-care.html" class="skills-card fade-in">
           <img src="images/course-4.jpg" alt="Tactical Emergency Casualty Care" />
           <div class="course-overlay"></div>
           <div class="course-card-content">
@@ -1202,7 +1304,7 @@
             <span class="course-card-link">Learn More <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
           </div>
         </a>
-        <a href="home-emergency-preparedness.html" class="course-card fade-in">
+        <a href="home-emergency-preparedness.html" class="skills-card fade-in">
           <img src="images/course-5.jpg" alt="Home Emergency Preparedness" />
           <div class="course-overlay"></div>
           <div class="course-card-content">
@@ -1210,7 +1312,7 @@
             <span class="course-card-link">Learn More <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
           </div>
         </a>
-        <a href="workplace-safety-and-response.html" class="course-card fade-in">
+        <a href="workplace-safety-and-response.html" class="skills-card fade-in">
           <img src="images/course-6.jpg" alt="Workplace Safety and Response" />
           <div class="course-overlay"></div>
           <div class="course-card-content">
