@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>School Emergency Medical Care | Iron Rescue</title>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -135,14 +136,8 @@
       color: var(--dark);
     }
 
-    .nav-logo-mark {
-      width: 36px; height: 36px;
-      background: var(--red);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    .nav-logo-mark { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-mark img { width: 100%; height: 100%; object-fit: contain; }
 
     .nav-links {
       display: flex;
@@ -393,7 +388,7 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
         <div class="nav-logo-mark">
-          <svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M19.07 4.93l-4.24 4.24M9.17 14.83l-4.24 4.24" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+          <img src="images/logo-mark.png" alt="Iron Rescue" />
         </div>
         IRON RESCUE
       </a>
@@ -403,16 +398,21 @@
           <li class="nav-dropdown">
             <a href="index.html#courses">Courses</a>
             <div class="dropdown-menu">
-                            <a href="tactical-emergency-casualty-care.html">TECC Certification</a>
+              <a href="tactical-emergency-casualty-care.html">TECC Certification</a>
+              <a href="stop-the-bleed.html">Stop The Bleed</a>
               <a href="scenario-training.html">Scenario Training</a>
-              <a href="#">Stop The Bleed</a>
+              <a href="mass-casualty-trauma-response.html">Mass Casualty Trauma Response</a>
+              <a href="school-emergency-medical-care.html" class="active">School Emergency Medical Care</a>
+              <a href="wilderness-medicine.html">Wilderness Medicine</a>
+              <a href="home-emergency-preparedness.html">Home Emergency Preparedness</a>
+              <a href="workplace-safety-and-response.html">Workplace Safety and Response</a>
             </div>
           </li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="equipment.html">Equipment</a></li>
           <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="index.html#about">About</a></li>
         </ul>
-        <a href="#pricing" class="btn btn-red" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
+        <a href="calendar.html" class="btn btn-red nav-cta" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -425,20 +425,24 @@
       <li><a href="index.html">Home</a></li>
       <li>
         <a href="#" id="mobileCoursesToggle" style="display:flex;justify-content:space-between;align-items:center;">
-          Courses
-          <span id="mobileCoursesArrow" style="font-size:11px;transition:transform 0.2s;">▼</span>
+          Courses <span id="mobileCoursesArrow" style="font-size:11px;transition:transform 0.2s;">▼</span>
         </a>
         <ul id="mobileCoursesList" style="display:none;list-style:none;padding-left:16px;margin-top:12px;gap:12px;flex-direction:column;">
-                    <li><a href="tactical-emergency-casualty-care.html" style="font-size:14px;color:var(--gray);">TECC Certification</a></li>
+          <li><a href="tactical-emergency-casualty-care.html" style="font-size:14px;color:var(--gray);">TECC Certification</a></li>
+          <li><a href="stop-the-bleed.html" style="font-size:14px;color:var(--gray);">Stop The Bleed</a></li>
           <li><a href="scenario-training.html" style="font-size:14px;color:var(--gray);">Scenario Training</a></li>
-          <li><a href="#" style="font-size:14px;color:var(--gray);">Stop The Bleed</a></li>
+          <li><a href="mass-casualty-trauma-response.html" style="font-size:14px;color:var(--gray);">Mass Casualty Trauma Response</a></li>
+          <li><a href="school-emergency-medical-care.html" style="font-size:14px;color:var(--red);font-weight:600;">School Emergency Medical Care</a></li>
+          <li><a href="wilderness-medicine.html" style="font-size:14px;color:var(--gray);">Wilderness Medicine</a></li>
+          <li><a href="home-emergency-preparedness.html" style="font-size:14px;color:var(--gray);">Home Emergency Preparedness</a></li>
+          <li><a href="workplace-safety-and-response.html" style="font-size:14px;color:var(--gray);">Workplace Safety and Response</a></li>
         </ul>
       </li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="equipment.html">Equipment</a></li>
       <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="index.html#about">About</a></li>
     </ul>
-    <a href="#pricing" class="btn btn-red" style="width: 100%; justify-content: center; margin-top: 8px;">Get Certified</a>
+    <a href="calendar.html" class="btn btn-red" style="width: 100%; justify-content: center; margin-top: 8px;">Get Certified</a>
   </div>
 
   <section class="hero">
@@ -449,7 +453,7 @@
       <p class="hero-body">School Emergency Medical Care gives educators the hands-on medical skills to stop life-threatening bleeding, stabilize injuries, and keep the people they love alive in the moments that count. Because when something happens in your classroom, there's no waiting for help.</p>
       <div class="hero-btns">
         <a href="#pricing" class="btn btn-red">Train With Us</a>
-        <a href="#" class="btn btn-ghost">See Course Dates</a>
+        <a href="calendar.html" class="btn btn-ghost">See Course Dates</a>
       </div>
     </div>
     <div class="hero-image">
@@ -571,7 +575,7 @@
           <div class="pricing-label">Training Only</div>
           <div class="pricing-price">$250 USD</div>
           <div class="pricing-note">&nbsp;</div>
-          <a href="#" class="btn btn-red pricing-btn">Reserve Your Spot</a>
+          <a href="calendar.html" class="btn btn-red pricing-btn">Reserve Your Spot</a>
           <div class="pricing-features-label">Key features:</div>
           <ul class="pricing-features">
             <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Bleeding simulator training</li>
@@ -585,7 +589,7 @@
           <div class="pricing-label">Training + Kit</div>
           <div class="pricing-price">$300 USD</div>
           <div class="pricing-note">Includes $179.95 Reecoil Deploy Trauma Kit</div>
-          <a href="#" class="btn btn-red pricing-btn">Reserve Your Spot</a>
+          <a href="calendar.html" class="btn btn-red pricing-btn">Reserve Your Spot</a>
           <div class="pricing-features-label">Key features:</div>
           <ul class="pricing-features">
             <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Everything in Training Only</li>
@@ -666,32 +670,37 @@
         <div>
           <a href="index.html" class="nav-logo" style="margin-bottom: 16px; display: inline-flex; color: white;">
             <div class="nav-logo-mark">
-              <svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M19.07 4.93l-4.24 4.24M9.17 14.83l-4.24 4.24" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+              <img src="images/logo-mark.png" alt="Iron Rescue" />
             </div>
             IRON RESCUE
           </a>
           <p class="footer-tagline">Safety at home, in action, and in the wild.</p>
           <div class="footer-social">
-            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+            <a href="https://instagram.com/ironrescue_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           </div>
         </div>
         <div>
           <div class="footer-col-heading">Courses</div>
           <ul class="footer-links">
-                      <li><a href="tactical-emergency-casualty-care.html">TECC Certification</a></li>
-          <li><a href="scenario-training.html">Scenario Training</a></li>
-          <li><a href="#">Stop The Bleed</a></li>
+            <li><a href="tactical-emergency-casualty-care.html">TECC Certification</a></li>
+            <li><a href="stop-the-bleed.html">Stop The Bleed</a></li>
+            <li><a href="scenario-training.html">Scenario Training</a></li>
+            <li><a href="mass-casualty-trauma-response.html">Mass Casualty Trauma Response</a></li>
+            <li><a href="school-emergency-medical-care.html">School Emergency Medical Care</a></li>
+            <li><a href="wilderness-medicine.html">Wilderness Medicine</a></li>
+            <li><a href="home-emergency-preparedness.html">Home Emergency Preparedness</a></li>
+            <li><a href="workplace-safety-and-response.html">Workplace Safety and Response</a></li>
           </ul>
         </div>
         <div>
           <div class="footer-col-heading">Quick Links</div>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="equipment.html">Equipment</a></li>
             <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
           </ul>
         </div>
       </div>

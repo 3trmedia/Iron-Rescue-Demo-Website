@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Iron Rescue</title>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #8B1A1A; --red-accent: #C0392B; --white: #ffffff; --off-white: #F8F8F8;
+      --dark: #1A1A1A; --dark-footer: #111111; --gray: #6B7280; --gray-light: #9CA3AF;
+      --gold: #F59E0B; --border: #E5E7EB;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; font-size: 16px; color: var(--dark); background: var(--white); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.1; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 4px; font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; transition: all 0.2s ease; border: 2px solid transparent; }
+    .btn-red { background: var(--red); color: var(--white); border-color: var(--red); }
+    .btn-red:hover { background: #6d1414; border-color: #6d1414; transform: translateY(-1px); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid var(--border); box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; }
+    .nav-right { display: flex; align-items: center; margin-left: auto; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.05em; color: var(--dark); }
+    .nav-logo-mark { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-mark img { width: 100%; height: 100%; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin-right: 32px; }
+    .nav-links a { font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 500; color: var(--gray); letter-spacing: 0.02em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
+    .nav-dropdown > a::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; margin-top: 1px; transition: transform 0.2s; }
+    .nav-dropdown:hover > a::after { transform: rotate(180deg); }
+    .dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); min-width: 240px; padding: 8px 0; z-index: 999; }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .nav-dropdown.open > a::after { transform: rotate(180deg); }
+    .dropdown-menu a { display: block; padding: 10px 20px; font-size: 14px; font-weight: 500; color: var(--dark); white-space: nowrap; transition: background 0.15s, color 0.15s; letter-spacing: 0; }
+    .dropdown-menu a:hover { background: var(--off-white); color: var(--red); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 24px 40px; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+    .mobile-menu ul a { font-size: 16px; font-weight: 500; color: var(--dark); }
+    .legal-hero { margin-top: 72px; background: var(--off-white); padding: 64px 0; border-bottom: 1px solid var(--border); }
+    .legal-hero h1 { font-size: clamp(30px, 4vw, 46px); color: var(--dark); margin-bottom: 12px; }
+    .legal-hero p { color: var(--gray); font-size: 15px; }
+    .legal-content { max-width: 780px; margin: 0 auto; padding: 72px 40px; }
+    .legal-content h2 { font-size: 20px; color: var(--dark); margin: 40px 0 14px; }
+    .legal-content h2:first-child { margin-top: 0; }
+    .legal-content p, .legal-content li { font-size: 15px; line-height: 1.8; color: var(--gray); margin-bottom: 14px; }
+    .legal-content ul { padding-left: 20px; margin-bottom: 14px; }
+    .legal-content a { color: var(--red); font-weight: 600; }
+    .legal-content a:hover { text-decoration: underline; }
+    footer { background: var(--dark-footer); color: var(--white); padding: 72px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 60px; padding-bottom: 56px; }
+    .footer-tagline { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.5); margin-bottom: 24px; max-width: 260px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 4px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .footer-social a:hover { background: var(--red); }
+    .footer-social svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.7); }
+    .footer-col-heading { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; text-align: center; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+    @media (max-width: 768px) {
+      .nav-right { display: none; } .hamburger { display: flex; }
+      .container { padding: 0 20px; } .nav-inner { padding: 0 20px; }
+      .legal-content { padding: 48px 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">
+          <img src="images/logo-mark.png" alt="Iron Rescue" />
+        </div>
+        IRON RESCUE
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li class="nav-dropdown">
+            <a href="index.html#courses">Courses</a>
+            <div class="dropdown-menu">
+              <a href="tactical-emergency-casualty-care.html">TECC Certification</a>
+              <a href="stop-the-bleed.html">Stop The Bleed</a>
+              <a href="scenario-training.html">Scenario Training</a>
+              <a href="mass-casualty-trauma-response.html">Mass Casualty Trauma Response</a>
+              <a href="school-emergency-medical-care.html">School Emergency Medical Care</a>
+              <a href="wilderness-medicine.html">Wilderness Medicine</a>
+              <a href="home-emergency-preparedness.html">Home Emergency Preparedness</a>
+              <a href="workplace-safety-and-response.html">Workplace Safety and Response</a>
+            </div>
+          </li>
+          <li><a href="equipment.html">Equipment</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="index.html#about">About</a></li>
+        </ul>
+        <a href="calendar.html" class="btn btn-red" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#courses">Courses</a></li>
+      <li><a href="equipment.html">Equipment</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+    <a href="calendar.html" class="btn btn-red" style="width: 100%; justify-content: center; margin-top: 8px;">Get Certified</a>
+  </div>
+
+  <div class="legal-hero">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p>Last updated September 2026</p>
+    </div>
+  </div>
+
+  <div class="legal-content">
+    <p>This Privacy Policy describes how Iron Rescue PLLC ("Iron Rescue," "we," "us," or "our") collects, uses, and protects information when you visit ironrescue.org, register for a class, or purchase a product through our online store.</p>
+
+    <h2>Information We Collect</h2>
+    <p>We collect information you provide directly to us, including:</p>
+    <ul>
+      <li>Name, email address, phone number, and billing/shipping address submitted when you register for a class or purchase an item through our store</li>
+      <li>Payment information processed at checkout (see "Payment Processing" below)</li>
+      <li>Messages you send us through a contact form or by email</li>
+      <li>Newsletter sign-up information, if you subscribe for course updates</li>
+    </ul>
+    <p>We also collect certain information automatically through cookies, described below.</p>
+
+    <h2>How Our Store Works (WordPress &amp; WooCommerce)</h2>
+    <p>This site is built on WordPress and uses WooCommerce to manage class registrations and product orders. When you register for a class or purchase equipment, WooCommerce creates an order record containing your contact details, the items or classes purchased, and your order history. This information is stored in our website's database and is accessible only to Iron Rescue staff for the purpose of fulfilling your order, managing class rosters, and providing customer support.</p>
+
+    <h2>Payment Processing</h2>
+    <p>We do not store your full credit card number on our servers. Payments made through our store are processed by a third-party payment gateway integrated with WooCommerce. That processor handles your payment details directly and is subject to its own privacy and security practices. We retain only the transaction record needed for order history, receipts, and accounting.</p>
+
+    <h2>Cookies</h2>
+    <p>Like most WordPress and WooCommerce sites, ironrescue.org uses cookies to keep your shopping cart contents while you browse, remember your session while you're logged into an account, and support basic site functions such as page load performance. We may also use analytics cookies (such as Google Analytics) to understand how visitors use the site in aggregate. You can disable cookies in your browser settings, though parts of the store, such as the cart and checkout, may not function properly without them.</p>
+
+    <h2>Class Rosters &amp; Waivers</h2>
+    <p>If you register for hands-on training, we may also collect emergency contact information and a signed liability waiver as part of the registration process. This information is used solely for class administration and safety purposes and is retained for as long as required for insurance and liability record-keeping.</p>
+
+    <h2>How We Use Your Information</h2>
+    <ul>
+      <li>To process class registrations and product orders</li>
+      <li>To communicate with you about upcoming classes, scheduling changes, or your order status</li>
+      <li>To respond to questions sent through our contact form or by email</li>
+      <li>To send course updates if you've opted into our newsletter</li>
+      <li>To improve our website and course offerings</li>
+    </ul>
+    <p>We do not sell your personal information to third parties.</p>
+
+    <h2>Data Retention</h2>
+    <p>We retain order records, class rosters, and waivers for as long as necessary for accounting, insurance, and legal purposes. You may request that we delete other information you've submitted (such as newsletter sign-ups or contact form messages) at any time.</p>
+
+    <h2>Your Rights</h2>
+    <p>You can request access to, correction of, or deletion of your personal information by contacting us at the email below. You may unsubscribe from our newsletter at any time using the link in any email we send.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>Our courses are intended for adults. We do not knowingly collect personal information from children under 13 through this website.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last updated" date.</p>
+
+    <h2>Contact Us</h2>
+    <p>Questions about this Privacy Policy can be sent to <a href="mailto:classes@ironrescue.org">classes@ironrescue.org</a>.</p>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="nav-logo" style="margin-bottom: 16px; display: inline-flex; color: white;">
+            <div class="nav-logo-mark">
+              <img src="images/logo-mark.png" alt="Iron Rescue" />
+            </div>
+            IRON RESCUE
+          </a>
+          <p class="footer-tagline">Safety at home, in action, and in the wild.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/ironrescue_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-heading">Courses</div>
+          <ul class="footer-links">
+            <li><a href="tactical-emergency-casualty-care.html">TECC Certification</a></li>
+            <li><a href="stop-the-bleed.html">Stop The Bleed</a></li>
+            <li><a href="scenario-training.html">Scenario Training</a></li>
+            <li><a href="mass-casualty-trauma-response.html">Mass Casualty Trauma Response</a></li>
+            <li><a href="school-emergency-medical-care.html">School Emergency Medical Care</a></li>
+            <li><a href="wilderness-medicine.html">Wilderness Medicine</a></li>
+            <li><a href="home-emergency-preparedness.html">Home Emergency Preparedness</a></li>
+            <li><a href="workplace-safety-and-response.html">Workplace Safety and Response</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="equipment.html">Equipment</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container"><p>&copy; 2024 Iron Rescue PLLC. All Rights Reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+    let dropdownCloseTimer;
+    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+      dropdown.addEventListener('mouseenter', () => {
+        clearTimeout(dropdownCloseTimer);
+        document.querySelectorAll('.nav-dropdown').forEach(d => { if (d !== dropdown) d.classList.remove('open'); });
+        dropdown.classList.add('open');
+      });
+      dropdown.addEventListener('mouseleave', () => {
+        dropdownCloseTimer = setTimeout(() => dropdown.classList.remove('open'), 300);
+      });
+    });
+    document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const dropdown = link.closest('.nav-dropdown');
+        const isOpen = dropdown.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        if (!isOpen) dropdown.classList.add('open');
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+  </script>
+</body>
+</html>

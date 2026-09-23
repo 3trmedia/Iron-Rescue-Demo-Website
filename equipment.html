@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scenario Training | Iron Rescue</title>
+  <title>Equipment | Iron Rescue</title>
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,11 +30,9 @@
     .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red-accent); margin-bottom: 14px; }
     .section { padding: 96px 0; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-header { text-align: center; margin-bottom: 56px; }
     .section-heading { font-size: clamp(28px, 3vw, 44px); color: var(--dark); margin-bottom: 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
-    .section-subhead { font-size: 17px; color: var(--gray); max-width: 580px; margin: 0 auto; line-height: 1.7; }
-
-    /* NAV */
+    .section-subhead { font-size: 16px; color: var(--gray); max-width: 560px; margin: 0 auto; line-height: 1.65; }
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid var(--border); box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; }
     .nav-right { display: flex; align-items: center; margin-left: auto; }
@@ -44,11 +42,12 @@
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin-right: 32px; }
     .nav-links a { font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 500; color: var(--gray); letter-spacing: 0.02em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--dark); }
+    .nav-links a.active { color: var(--red); }
     .nav-dropdown { position: relative; }
     .nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
     .nav-dropdown > a::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; margin-top: 1px; transition: transform 0.2s; }
     .nav-dropdown:hover > a::after { transform: rotate(180deg); }
-    .dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); min-width: 220px; padding: 8px 0; z-index: 999; }
+    .dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); min-width: 240px; padding: 8px 0; z-index: 999; }
     .nav-dropdown.open .dropdown-menu { display: block; }
     .nav-dropdown.open > a::after { transform: rotate(180deg); }
     .dropdown-menu a { display: block; padding: 10px 20px; font-size: 14px; font-weight: 500; color: var(--dark); white-space: nowrap; transition: background 0.15s, color 0.15s; letter-spacing: 0; }
@@ -60,39 +59,40 @@
     .mobile-menu.open { display: block; }
     .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
     .mobile-menu ul a { font-size: 16px; font-weight: 500; color: var(--dark); }
-
-    /* HERO */
     .page-hero { margin-top: 72px; background: var(--off-white); padding: 80px 0; position: relative; overflow: hidden; }
     .page-hero::before { content: ''; position: absolute; inset: 0; background-image: url('images/hero-action.jpg'); background-size: cover; background-position: center; opacity: 0.1; pointer-events: none; }
     .page-hero-content { position: relative; z-index: 1; max-width: 720px; }
     .page-hero h1 { font-size: clamp(34px, 4vw, 56px); color: var(--dark); margin-bottom: 20px; }
     .page-hero p { font-size: 18px; line-height: 1.75; color: var(--gray); max-width: 580px; }
-
-    /* COURSE ROWS */
-    .courses-list { display: flex; flex-direction: column; gap: 0; }
-
-    .course-row { display: grid; grid-template-columns: 420px 1fr; gap: 0; align-items: stretch; border-bottom: 1px solid var(--border); }
-    .course-row:first-child { border-top: 1px solid var(--border); }
-    .course-row:nth-child(even) { direction: rtl; }
-    .course-row:nth-child(even) > * { direction: ltr; }
-
-    .course-row-image { position: relative; overflow: hidden; min-height: 320px; }
-    .course-row-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
-    .course-row:hover .course-row-image img { transform: scale(1.04); }
-
-    .course-row-body { padding: 56px 64px; display: flex; flex-direction: column; justify-content: center; }
-
-    .course-row-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: rgba(139,26,26,0.08); color: var(--red); border-radius: 2px; padding: 4px 10px; margin-bottom: 20px; }
-
-    .course-row-title { font-size: clamp(22px, 2.5vw, 32px); color: var(--dark); margin-bottom: 16px; }
-
-    .course-row-desc { font-size: 15px; line-height: 1.8; color: var(--gray); margin-bottom: 28px; }
-
-    .course-outcomes { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
-    .course-outcomes li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--dark); line-height: 1.5; }
-    .outcome-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
-
-    /* FOOTER */
+    .gear-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .gear-card { background: var(--off-white); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+    .gear-card-image { height: 220px; overflow: hidden; }
+    .gear-card-image img { width: 100%; height: 100%; object-fit: cover; }
+    .gear-card-body { padding: 28px; }
+    .gear-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 19px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--dark); margin-bottom: 10px; }
+    .gear-card-desc { font-size: 14px; line-height: 1.7; color: var(--gray); }
+    .march-section { background: linear-gradient(to bottom, #A02020 0%, #660E0E 100%); }
+    .march-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+    .march-item { text-align: center; }
+    .march-letter { font-family: 'Barlow Condensed', sans-serif; font-size: 56px; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 12px; }
+    .march-title { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--white); margin-bottom: 8px; }
+    .march-desc { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.75); }
+    .kit-section { background: var(--off-white); }
+    .kit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .kit-photo { border-radius: 8px; overflow: hidden; }
+    .kit-photo img { width: 100%; height: 420px; object-fit: cover; }
+    .kit-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin: 28px 0 36px; }
+    .kit-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--dark); line-height: 1.5; }
+    .check-icon { width: 20px; height: 20px; background: rgba(139,26,26,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .check-icon svg { width: 11px; height: 11px; stroke: var(--red); fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .final-cta { position: relative; padding: 120px 0; overflow: hidden; }
+    .final-cta-bg { position: absolute; inset: 0; z-index: 0; }
+    .final-cta-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .final-cta-bg::after { content: ''; position: absolute; inset: 0; background: rgba(17,17,17,0.82); }
+    .final-cta-content { position: relative; z-index: 1; text-align: center; max-width: 640px; margin: 0 auto; padding: 0 40px; }
+    .final-cta-headline { font-size: clamp(32px, 4vw, 54px); color: var(--white); margin-bottom: 12px; }
+    .final-cta-subhead { font-size: 22px; font-weight: 700; color: var(--red-accent); margin-bottom: 20px; font-family: 'Barlow', sans-serif; }
+    .final-cta-body { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
     footer { background: var(--dark-footer); color: var(--white); padding: 72px 0 0; }
     .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 60px; padding-bottom: 56px; }
     .footer-tagline { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.5); margin-bottom: 24px; max-width: 260px; }
@@ -106,22 +106,21 @@
     .footer-links a:hover { color: var(--white); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; text-align: center; }
     .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
-
     @media (max-width: 1024px) {
-      .course-row { grid-template-columns: 1fr; }
-      .course-row:nth-child(even) { direction: ltr; }
-      .course-row-image { min-height: 260px; }
-      .course-row-image img { height: 260px; }
-      .course-row-body { padding: 40px; }
+      .gear-grid { grid-template-columns: repeat(2, 1fr); }
+      .march-grid { grid-template-columns: repeat(3, 1fr); gap: 32px 24px; }
+      .kit-grid { grid-template-columns: 1fr; gap: 40px; }
+      .kit-photo img { height: 320px; }
     }
     @media (max-width: 768px) {
       .nav-right { display: none; } .hamburger { display: flex; }
       .container { padding: 0 20px; } .nav-inner { padding: 0 20px; }
       .section { padding: 60px 0; }
       .page-hero { padding: 56px 0; }
-      .course-row-body { padding: 32px 20px; }
+      .gear-grid { grid-template-columns: 1fr; }
+      .march-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-      footer { padding: 56px 0 0; }
+      .final-cta { padding: 80px 0; } .final-cta-content { padding: 0 20px; }
     }
   </style>
 </head>
@@ -143,7 +142,7 @@
             <div class="dropdown-menu">
               <a href="tactical-emergency-casualty-care.html">TECC Certification</a>
               <a href="stop-the-bleed.html">Stop The Bleed</a>
-              <a href="scenario-training.html" class="active">Scenario Training</a>
+              <a href="scenario-training.html">Scenario Training</a>
               <a href="mass-casualty-trauma-response.html">Mass Casualty Trauma Response</a>
               <a href="school-emergency-medical-care.html">School Emergency Medical Care</a>
               <a href="wilderness-medicine.html">Wilderness Medicine</a>
@@ -151,11 +150,11 @@
               <a href="workplace-safety-and-response.html">Workplace Safety and Response</a>
             </div>
           </li>
-          <li><a href="equipment.html">Equipment</a></li>
+          <li><a href="equipment.html" class="active">Equipment</a></li>
           <li><a href="calendar.html">Calendar</a></li>
           <li><a href="index.html#about">About</a></li>
         </ul>
-        <a href="calendar.html" class="btn btn-red nav-cta" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
+        <a href="calendar.html" class="btn btn-red" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -173,7 +172,7 @@
         <ul id="mobileCoursesList" style="display:none;list-style:none;padding-left:16px;margin-top:12px;gap:12px;flex-direction:column;">
           <li><a href="tactical-emergency-casualty-care.html" style="font-size:14px;color:var(--gray);">TECC Certification</a></li>
           <li><a href="stop-the-bleed.html" style="font-size:14px;color:var(--gray);">Stop The Bleed</a></li>
-          <li><a href="scenario-training.html" style="font-size:14px;color:var(--red);font-weight:600;">Scenario Training</a></li>
+          <li><a href="scenario-training.html" style="font-size:14px;color:var(--gray);">Scenario Training</a></li>
           <li><a href="mass-casualty-trauma-response.html" style="font-size:14px;color:var(--gray);">Mass Casualty Trauma Response</a></li>
           <li><a href="school-emergency-medical-care.html" style="font-size:14px;color:var(--gray);">School Emergency Medical Care</a></li>
           <li><a href="wilderness-medicine.html" style="font-size:14px;color:var(--gray);">Wilderness Medicine</a></li>
@@ -181,7 +180,7 @@
           <li><a href="workplace-safety-and-response.html" style="font-size:14px;color:var(--gray);">Workplace Safety and Response</a></li>
         </ul>
       </li>
-      <li><a href="equipment.html">Equipment</a></li>
+      <li><a href="equipment.html" style="color:var(--red);font-weight:600;">Equipment</a></li>
       <li><a href="calendar.html">Calendar</a></li>
       <li><a href="index.html#about">About</a></li>
     </ul>
@@ -192,127 +191,143 @@
   <div class="page-hero">
     <div class="container">
       <div class="page-hero-content fade-in">
-        <span class="eyebrow">Skills Maintenance</span>
-        <h1>Apply Your Skills.<br>Expand Your Range.</h1>
-        <p>These scenario-based courses are built for certified students who want to take their TECC training into new environments. Each one puts you in a specific context and coaches you through it until the response is automatic.</p>
+        <span class="eyebrow">Gear We Train With</span>
+        <h1>The Right Equipment Is Half The Battle.</h1>
+        <p>Knowing what to do only matters if you have the right gear in hand when it counts. Here's what we use in class, and what we can get you outfitted with when training ends.</p>
       </div>
     </div>
   </div>
 
-  <!-- COURSE ROWS -->
-  <section class="section" style="background: var(--white); padding-top: 0; padding-bottom: 0;">
-    <div class="courses-list">
-
-      <!-- Mass Casualty Trauma Response -->
-      <div class="course-row fade-in">
-        <div class="course-row-image">
-          <img src="images/course-1.jpg" alt="Mass Casualty Trauma Response" />
+  <!-- GEAR GRID -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="eyebrow">Trauma Gear</span>
+        <h2 class="section-heading">What's In The Kit</h2>
+        <p class="section-subhead">Every item below is taught hands-on in class before it's ever handed to you as your own.</p>
+      </div>
+      <div class="gear-grid">
+        <div class="gear-card fade-in">
+          <div class="gear-card-image"><img src="images/hero-action.jpg" alt="CAT Gen 7 Tourniquet" /></div>
+          <div class="gear-card-body">
+            <div class="gear-card-title">CAT Gen 7 Tourniquet</div>
+            <div class="gear-card-desc">The same combat application tourniquet trusted by military medics. You'll learn to apply it one-handed, under stress, in under 60 seconds.</div>
+          </div>
         </div>
-        <div class="course-row-body">
-          <span class="course-row-tag">Skills Maintenance</span>
-          <h2 class="course-row-title">Mass Casualty Trauma Response</h2>
-          <p class="course-row-desc">Most trauma training prepares you for one patient. This course prepares you for the moment there are multiple. Mass casualty events demand a different kind of decision-making, and Iron Rescue's MCTR course builds the triage instincts and coordination skills to operate effectively when the stakes are highest.</p>
-          <p class="course-row-desc">You'll run through realistic multi-casualty scenarios, practice rapid assessment under time pressure, and learn how to prioritize treatment when resources are stretched. By the end, your response is structured, not chaotic.</p>
-          <ul class="course-outcomes">
-            <li><span class="outcome-dot"></span>Rapid triage and casualty prioritization</li>
-            <li><span class="outcome-dot"></span>Bleeding control on multiple simultaneous patients</li>
-            <li><span class="outcome-dot"></span>Scene management and EMS coordination</li>
-            <li><span class="outcome-dot"></span>Decision-making under high-stress, multi-casualty conditions</li>
-          </ul>
-          <a href="mass-casualty-trauma-response.html" class="btn btn-red">View Course Details</a>
+        <div class="gear-card fade-in">
+          <div class="gear-card-image"><img src="images/course-1.jpg" alt="Hemostatic gauze" /></div>
+          <div class="gear-card-body">
+            <div class="gear-card-title">QuikClot Combat Gauze</div>
+            <div class="gear-card-desc">Hemostatic gauze that accelerates clotting for wounds a tourniquet can't reach. You'll practice packing it correctly on realistic bleeding simulators.</div>
+          </div>
+        </div>
+        <div class="gear-card fade-in">
+          <div class="gear-card-image"><img src="images/about-photo.jpg" alt="Chest seal" /></div>
+          <div class="gear-card-body">
+            <div class="gear-card-title">Vented Chest Seal</div>
+            <div class="gear-card-desc">Prevents a penetrating chest wound from becoming a fatal pneumothorax. One of the most critical, and most overlooked, tools in a trauma kit.</div>
+          </div>
+        </div>
+        <div class="gear-card fade-in">
+          <div class="gear-card-image"><img src="images/hero-right.jpg" alt="Bleeding simulator" /></div>
+          <div class="gear-card-body">
+            <div class="gear-card-title">Bleeding Simulators</div>
+            <div class="gear-card-desc">Realistic wound simulators used throughout every course, so you're practicing on something that behaves like the real thing, not a diagram.</div>
+          </div>
+        </div>
+        <div class="gear-card fade-in">
+          <div class="gear-card-image"><img src="images/course-1.jpg" alt="Reecoil Deploy Trauma Kit" /></div>
+          <div class="gear-card-body">
+            <div class="gear-card-title">Reecoil Deploy Trauma Kit</div>
+            <div class="gear-card-desc">A complete, compact IFAK configured for real emergencies. Available bundled with TECC training, or on its own for students who already have their certification.</div>
+          </div>
+        </div>
+        <div class="gear-card fade-in">
+          <div class="gear-card-image"><img src="images/hero-action.jpg" alt="Trauma shears and gloves" /></div>
+          <div class="gear-card-body">
+            <div class="gear-card-title">Trauma Shears &amp; Gloves</div>
+            <div class="gear-card-desc">The unglamorous essentials. Fast access to the injury and basic protection for the person providing care are non-negotiable in any kit.</div>
+          </div>
         </div>
       </div>
-
-      <!-- School Emergency Medical Care -->
-      <div class="course-row fade-in">
-        <div class="course-row-image">
-          <img src="images/course-2.jpg" alt="School Emergency Medical Care" />
-        </div>
-        <div class="course-row-body">
-          <span class="course-row-tag">Skills Maintenance</span>
-          <h2 class="course-row-title">School Emergency Medical Care</h2>
-          <p class="course-row-desc">Teachers and school staff are often the first adults on scene in a building emergency. This course is built specifically for educators and administrators who need to be ready to act when a school emergency unfolds, before emergency services arrive.</p>
-          <p class="course-row-desc">Iron Rescue's School Emergency Medical Care course applies TECC skills to the school environment: classroom emergencies, active threat scenarios, limited resources, and the added complexity of managing frightened students. You'll leave with TECC certification, a complete IFAK, and the confidence to lead in a crisis.</p>
-          <ul class="course-outcomes">
-            <li><span class="outcome-dot"></span>Life-saving interventions with limited school resources</li>
-            <li><span class="outcome-dot"></span>Active threat medical response protocols</li>
-            <li><span class="outcome-dot"></span>Managing multiple students in distress</li>
-            <li><span class="outcome-dot"></span>TECC certification + IFAK kit included</li>
-          </ul>
-          <a href="school-emergency-medical-care.html" class="btn btn-red">View Course Details</a>
-        </div>
-      </div>
-
-      <!-- Wilderness Medicine -->
-      <div class="course-row fade-in">
-        <div class="course-row-image">
-          <img src="images/wm-hero.jpg" alt="Wilderness Medicine" />
-        </div>
-        <div class="course-row-body">
-          <span class="course-row-tag">Skills Maintenance</span>
-          <h2 class="course-row-title">Wilderness Medicine</h2>
-          <p class="course-row-desc">When you're deep in the backcountry, help is not coming in minutes. It might be hours. Wilderness Medicine trains you to manage trauma and medical emergencies when evacuation is delayed, resources are improvised, and the environment itself is part of the problem.</p>
-          <p class="course-row-desc">You'll practice improvised wound care, fracture stabilization, hypothermia management, and patient packaging for extraction. Everything taught applies directly to the realities of hunting, hiking, and backcountry operations, where your knowledge and your pack are the only things between you and a bad outcome.</p>
-          <ul class="course-outcomes">
-            <li><span class="outcome-dot"></span>Wound management and hemorrhage control in remote settings</li>
-            <li><span class="outcome-dot"></span>Improvised splinting and fracture stabilization</li>
-            <li><span class="outcome-dot"></span>Environmental emergency management (hypothermia, heat, dehydration)</li>
-            <li><span class="outcome-dot"></span>Patient packaging and extended care protocols</li>
-          </ul>
-          <a href="wilderness-medicine.html" class="btn btn-red">View Course Details</a>
-        </div>
-      </div>
-
-      <!-- Home Emergency Preparedness -->
-      <div class="course-row fade-in">
-        <div class="course-row-image">
-          <img src="images/course-5.jpg" alt="Home Emergency Preparedness" />
-        </div>
-        <div class="course-row-body">
-          <span class="course-row-tag">Skills Maintenance</span>
-          <h2 class="course-row-title">Home Emergency Preparedness</h2>
-          <p class="course-row-desc">Emergencies don't happen at the range or in the field. They happen in kitchens, driveways, and living rooms, when the people involved are family members, not strangers. Home Emergency Preparedness applies trauma skills to the most personal scenario of all: responding to someone you love.</p>
-          <p class="course-row-desc">This course covers household trauma response, pediatric bleeding control, CPR/AED use, choking, and how to build and maintain a home trauma kit. It's also one of the most effective courses to take as a family unit, giving everyone in the household a baseline level of skill.</p>
-          <ul class="course-outcomes">
-            <li><span class="outcome-dot"></span>Trauma response for household injuries and emergencies</li>
-            <li><span class="outcome-dot"></span>Pediatric bleeding control and airway management</li>
-            <li><span class="outcome-dot"></span>CPR and AED training for cardiac events at home</li>
-            <li><span class="outcome-dot"></span>Home trauma kit setup and maintenance</li>
-          </ul>
-          <a href="home-emergency-preparedness.html" class="btn btn-red">View Course Details</a>
-        </div>
-      </div>
-
-      <!-- Workplace Safety and Response -->
-      <div class="course-row fade-in">
-        <div class="course-row-image">
-          <img src="images/course-6.jpg" alt="Workplace Safety and Response" />
-        </div>
-        <div class="course-row-body">
-          <span class="course-row-tag">Skills Maintenance</span>
-          <h2 class="course-row-title">Workplace Safety and Response</h2>
-          <p class="course-row-desc">Workplace emergencies, machine injuries, falls, cardiac events, sudden illness, often happen faster than any safety procedure can account for. Iron Rescue's Workplace Safety and Response course equips teams to handle the first critical minutes before EMS arrives, transforming your crew into a trained first response unit.</p>
-          <p class="course-row-desc">Available as a private team training for organizations of any size, this course is built around the specific hazards of your work environment. Easton customizes scenarios to your worksite so the training isn't generic, it's directly applicable to the risks your people face every day.</p>
-          <ul class="course-outcomes">
-            <li><span class="outcome-dot"></span>Workplace trauma response and injury management</li>
-            <li><span class="outcome-dot"></span>Team coordination during multi-casualty incidents</li>
-            <li><span class="outcome-dot"></span>CPR and AED operation in a workplace setting</li>
-            <li><span class="outcome-dot"></span>TECC certification for all participants</li>
-          </ul>
-          <a href="workplace-safety-and-response.html" class="btn btn-red">View Course Details</a>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- BOTTOM CTA -->
-  <section class="section" style="background: var(--off-white); text-align: center;">
-    <div class="container fade-in">
-      <span class="eyebrow">Start Here</span>
-      <h2 style="font-size: clamp(28px, 3vw, 42px); color: var(--dark); margin-bottom: 16px;">Not TECC Certified Yet?</h2>
-      <p style="font-size: 17px; color: var(--gray); max-width: 520px; margin: 0 auto 40px; line-height: 1.7;">All of these courses are built on a TECC foundation. Get certified first, then come back for the environment that fits your life.</p>
-      <a href="tactical-emergency-casualty-care.html" class="btn btn-red">Get TECC Certified</a>
+  <!-- MARCH ALGORITHM -->
+  <section class="section march-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="eyebrow structure-eyebrow" style="color: rgba(255,255,255,0.65);">How It All Fits Together</span>
+        <h2 class="section-heading" style="color: var(--white);">The MARCH Algorithm</h2>
+        <p class="section-subhead" style="color: rgba(255,255,255,0.75);">Every piece of gear in your kit maps directly to a step in MARCH, the same casualty assessment order used by military and tactical medics.</p>
+      </div>
+      <div class="march-grid">
+        <div class="march-item fade-in">
+          <div class="march-letter">M</div>
+          <div class="march-title">Massive Hemorrhage</div>
+          <div class="march-desc">Tourniquet and hemostatic gauze to stop life-threatening bleeding first, before anything else.</div>
+        </div>
+        <div class="march-item fade-in">
+          <div class="march-letter">A</div>
+          <div class="march-title">Airway</div>
+          <div class="march-desc">Clear and maintain an open airway so the patient can keep breathing.</div>
+        </div>
+        <div class="march-item fade-in">
+          <div class="march-letter">R</div>
+          <div class="march-title">Respiration</div>
+          <div class="march-desc">Chest seal applied to any penetrating chest injury to keep lungs functioning.</div>
+        </div>
+        <div class="march-item fade-in">
+          <div class="march-letter">C</div>
+          <div class="march-title">Circulation</div>
+          <div class="march-desc">Check for further bleeding and signs of shock once the first threats are controlled.</div>
+        </div>
+        <div class="march-item fade-in">
+          <div class="march-letter">H</div>
+          <div class="march-title">Hypothermia / Head</div>
+          <div class="march-desc">Keep the patient warm and assess for head injury while you wait for help to arrive.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KIT UPSELL -->
+  <section class="section kit-section">
+    <div class="container">
+      <div class="kit-grid">
+        <div class="kit-photo fade-in">
+          <img src="images/about-photo.jpg" alt="Reecoil Deploy Trauma Kit walkthrough" />
+        </div>
+        <div class="fade-in">
+          <span class="eyebrow">Walk Out Equipped</span>
+          <h2 class="section-heading" style="text-align: left;">Training Without Gear Is Just Theory.</h2>
+          <p style="font-size: 15px; line-height: 1.75; color: var(--gray);">Every Training + Kit student leaves with a complete Reecoil Deploy Trauma Kit, personally walked through item by item by Easton, so you know exactly what's in it and exactly how to use every piece.</p>
+          <ul class="kit-list">
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>CAT Gen 7 Tourniquet</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>QuikClot Combat Gauze</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Vented chest seal</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Trauma shears &amp; nitrile gloves</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Compact, wearable carry pouch</li>
+          </ul>
+          <div style="display:flex; gap:16px; flex-wrap:wrap;">
+            <a href="tactical-emergency-casualty-care.html" class="btn btn-red">Get Trained + Equipped</a>
+            <a href="mailto:classes@ironrescue.org?subject=Kit%20Only%20Inquiry" class="btn btn-ghost">Already Certified? Ask About a Kit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="final-cta-bg">
+      <img src="images/hero-right.jpg" alt="Iron Rescue training background" />
+    </div>
+    <div class="final-cta-content fade-in">
+      <h2 class="final-cta-headline">Gear Doesn't Save Lives. Knowing How To Use It Does.</h2>
+      <p class="final-cta-subhead">Get Certified.</p>
+      <p class="final-cta-body">Every piece of equipment above is taught hands-on before it's ever handed to you as your own.</p>
+      <a href="calendar.html" class="btn btn-red">Find a Class</a>
     </div>
   </section>
 
@@ -359,7 +374,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="container"><p>2024 Iron Rescue PLLC. All Rights Reserved.</p></div>
+      <div class="container"><p>&copy; 2024 Iron Rescue PLLC. All Rights Reserved.</p></div>
     </div>
   </footer>
 

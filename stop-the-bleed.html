@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tactical Emergency Casualty Care | Iron Rescue</title>
+  <title>Stop The Bleed | Iron Rescue</title>
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -91,6 +91,7 @@
     .step-desc { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.75); }
     .pricing-section { background: var(--off-white); }
     .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto; }
+    .pricing-grid.single { grid-template-columns: 1fr; max-width: 420px; }
     .pricing-card { background: var(--white); border-radius: 8px; padding: 40px 36px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); position: relative; }
     .pricing-card.featured { border-top: 4px solid var(--red); }
     .pricing-label { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red-accent); margin-bottom: 16px; }
@@ -168,8 +169,8 @@
           <li class="nav-dropdown">
             <a href="index.html#courses">Courses</a>
             <div class="dropdown-menu">
-              <a href="tactical-emergency-casualty-care.html" class="active">TECC Certification</a>
-              <a href="stop-the-bleed.html">Stop The Bleed</a>
+              <a href="tactical-emergency-casualty-care.html">TECC Certification</a>
+              <a href="stop-the-bleed.html" class="active">Stop The Bleed</a>
               <a href="scenario-training.html">Scenario Training</a>
               <a href="mass-casualty-trauma-response.html">Mass Casualty Trauma Response</a>
               <a href="school-emergency-medical-care.html">School Emergency Medical Care</a>
@@ -182,7 +183,7 @@
           <li><a href="calendar.html">Calendar</a></li>
           <li><a href="index.html#about">About</a></li>
         </ul>
-        <a href="calendar.html" class="btn btn-red nav-cta" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
+        <a href="calendar.html" class="btn btn-red" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -198,8 +199,8 @@
           Courses <span id="mobileCoursesArrow" style="font-size:11px;transition:transform 0.2s;">▼</span>
         </a>
         <ul id="mobileCoursesList" style="display:none;list-style:none;padding-left:16px;margin-top:12px;gap:12px;flex-direction:column;">
-          <li><a href="tactical-emergency-casualty-care.html" style="font-size:14px;color:var(--red);font-weight:600;">TECC Certification</a></li>
-          <li><a href="stop-the-bleed.html" style="font-size:14px;color:var(--gray);">Stop The Bleed</a></li>
+          <li><a href="tactical-emergency-casualty-care.html" style="font-size:14px;color:var(--gray);">TECC Certification</a></li>
+          <li><a href="stop-the-bleed.html" style="font-size:14px;color:var(--red);font-weight:600;">Stop The Bleed</a></li>
           <li><a href="scenario-training.html" style="font-size:14px;color:var(--gray);">Scenario Training</a></li>
           <li><a href="mass-casualty-trauma-response.html" style="font-size:14px;color:var(--gray);">Mass Casualty Trauma Response</a></li>
           <li><a href="school-emergency-medical-care.html" style="font-size:14px;color:var(--gray);">School Emergency Medical Care</a></li>
@@ -217,17 +218,17 @@
 
   <section class="hero">
     <div class="hero-content fade-in">
-      <span class="eyebrow">Tactical Emergency Casualty Care</span>
-      <h1 class="hero-headline">Built for the Range. Ready for Real Life.</h1>
-      <p class="hero-subhead">The same life-saving protocols trusted by military and law enforcement, now available to you.</p>
-      <p class="hero-body">TECC is the standard for tactical medicine. Iron Rescue's Tactical Emergency Casualty Care course brings military-grade trauma training to civilian life. You'll learn to control massive bleeding, manage airways, and keep someone alive under the worst conditions, on the range, in the field, or wherever it matters.</p>
+      <span class="eyebrow">Stop The Bleed</span>
+      <h1 class="hero-headline">Three Minutes Is All You Get. Make Them Count.</h1>
+      <p class="hero-subhead">The nationally recognized Stop the Bleed curriculum, taught hands-on.</p>
+      <p class="hero-body">Uncontrolled bleeding is the leading cause of preventable death after an injury, and someone can bleed out in under three minutes. Iron Rescue's Stop the Bleed course teaches you the three life-saving actions anyone can do: apply pressure, pack a wound, and place a tourniquet, before EMS ever arrives.</p>
       <div class="hero-btns">
-        <a href="#pricing" class="btn btn-red">Train With Us</a>
+        <a href="calendar.html" class="btn btn-red">Get Certified</a>
         <a href="calendar.html" class="btn btn-ghost">See Course Dates</a>
       </div>
     </div>
     <div class="hero-image">
-      <img src="images/course-1.jpg" alt="Tactical Emergency Casualty Care training" />
+      <img src="images/hero-action.jpg" alt="Bleeding control simulator training" />
     </div>
   </section>
 
@@ -240,8 +241,17 @@
             <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
           <div>
-            <div class="master-title">Tactical Bleeding Control</div>
-            <div class="master-desc">Apply tourniquets and pack wounds under stress. The same techniques combat medics use, now in your hands. These skills don't just save lives, they end preventable deaths.</div>
+            <div class="master-title">Recognize Life-Threatening Bleeding</div>
+            <div class="master-desc">Learn to quickly identify when bleeding is severe enough to be fatal, and why hesitation in that first minute is the most dangerous mistake you can make.</div>
+          </div>
+        </div>
+        <div class="master-item fade-in">
+          <div class="master-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div>
+            <div class="master-title">Apply Direct Pressure</div>
+            <div class="master-desc">The first and simplest life-saving skill, done correctly. You'll practice applying firm, sustained pressure until it becomes second nature.</div>
           </div>
         </div>
         <div class="master-item fade-in">
@@ -249,17 +259,17 @@
             <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <div>
-            <div class="master-title">Airway Management</div>
-            <div class="master-desc">Keep an unconscious or injured person breathing when help is far away. An open airway is non-negotiable, learn how to maintain one in any position, any situation.</div>
+            <div class="master-title">Pack a Wound</div>
+            <div class="master-desc">Wound packing controls bleeding that pressure alone can't stop. You'll practice on realistic bleeding simulators until the technique is muscle memory.</div>
           </div>
         </div>
         <div class="master-item fade-in">
           <div class="master-icon">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
           <div>
-            <div class="master-title">TECC Certification</div>
-            <div class="master-desc">Earn the nationally recognized Tactical Emergency Casualty Care certification upon completion, the standard for civilian tactical medicine recognized across the country.</div>
+            <div class="master-title">Apply a Tourniquet</div>
+            <div class="master-desc">Properly place and tighten a tourniquet on a limb, the single most effective intervention for severe extremity bleeding when seconds matter.</div>
           </div>
         </div>
         <div class="master-item fade-in">
@@ -267,31 +277,22 @@
             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </div>
           <div>
-            <div class="master-title">Threat Assessment</div>
-            <div class="master-desc">Learn to scan and evaluate a scene under pressure. Know when it's safe to treat, how to prioritize multiple casualties, and how to stay calm when everything is happening at once.</div>
+            <div class="master-title">Scene Safety First</div>
+            <div class="master-desc">Learn to check the scene before you act, protecting yourself so you can actually help, rather than becoming a second casualty.</div>
           </div>
         </div>
         <div class="master-item fade-in">
           <div class="master-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
           <div>
-            <div class="master-title">Chest Wound Sealing</div>
-            <div class="master-desc">Properly seal penetrating chest wounds to prevent a pneumothorax from becoming fatal. This is one of the most critical skills in tactical trauma care, and one of the most overlooked.</div>
-          </div>
-        </div>
-        <div class="master-item fade-in">
-          <div class="master-icon">
-            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <div>
-            <div class="master-title">High-Stress Decision Making</div>
-            <div class="master-desc">Train for the moment the pressure is on and everything depends on your next move. Scenario-based training conditions your mind and body to respond, not freeze, under fire.</div>
+            <div class="master-title">Call for Help</div>
+            <div class="master-desc">Know exactly what to say and when to say it, so EMS gets the information they need the moment they arrive on scene.</div>
           </div>
         </div>
       </div>
       <div class="master-cta fade-in">
-        <a href="#pricing" class="btn btn-red">Claim Your Spot</a>
+        <a href="calendar.html" class="btn btn-red">Claim Your Spot</a>
       </div>
     </div>
   </section>
@@ -300,31 +301,31 @@
     <div class="container">
       <div class="structure-grid">
         <div class="structure-photo fade-in">
-          <img src="images/about-photo.jpg" alt="Tactical training in action" />
+          <img src="images/course-1.jpg" alt="Stop the Bleed hands-on training" />
         </div>
         <div class="fade-in">
           <span class="eyebrow structure-eyebrow">Course Structure</span>
-          <h2 class="structure-heading">A Straightforward Process That Turns Everyday People Into Lifesaving First Responders.</h2>
+          <h2 class="structure-heading">A Focused, Three-Hour Course Built Around One Goal: Keeping Someone Alive Until Help Arrives.</h2>
           <div class="steps-list">
             <div class="step-item">
               <div class="step-number"><span>1</span></div>
               <div>
-                <div class="step-title">Learn The Material</div>
-                <div class="step-desc">We start with the tactical medical knowledge used by military and law enforcement professionals. You'll understand the physiology of trauma, why TECC protocol is structured the way it is, and how to make life-or-death decisions in a compressed timeline. No fluff, just the framework that actually works.</div>
+                <div class="step-title">Learn the "Why"</div>
+                <div class="step-desc">Understand why uncontrolled bleeding is the number one cause of preventable death after an injury, and why every bystander, not just first responders, needs to know how to act in the first few minutes.</div>
               </div>
             </div>
             <div class="step-item">
               <div class="step-number"><span>2</span></div>
               <div>
-                <div class="step-title">Practice The Skills</div>
-                <div class="step-desc">Knowing the protocol and executing it under stress are two completely different things. You'll run through live scenarios, controlling simulated bleeds, sealing chest wounds, managing airways, and coordinating care with multiple casualties. Easton coaches you through every rep until the muscle memory is locked in.</div>
+                <div class="step-title">Practice on Real Simulators</div>
+                <div class="step-desc">Hands-on repetition on bleeding simulators until applying pressure, packing a wound, and placing a tourniquet feels automatic, not something you have to think through under pressure.</div>
               </div>
             </div>
             <div class="step-item">
               <div class="step-number"><span>3</span></div>
               <div>
-                <div class="step-title">Acquire The Gear</div>
-                <div class="step-desc">Tier 2 students leave with a complete Reecoil Deploy Trauma Kit configured for tactical use. Easton walks you through every item, tourniquet placement, chest seal application, wound packing, so you leave knowing exactly what to reach for and exactly how to use it.</div>
+                <div class="step-title">Walk Away Ready</div>
+                <div class="step-desc">Leave knowing exactly what to do if you're ever the first person on the scene of a bleeding emergency, at home, at work, or anywhere else life happens.</div>
               </div>
             </div>
           </div>
@@ -340,35 +341,19 @@
         <h2 class="section-heading">Our Pricing</h2>
         <p class="section-subhead">Transparent pricing. No surprise fees.</p>
       </div>
-      <div class="pricing-grid fade-in">
-        <div class="pricing-card">
-          <div class="pricing-label">Training Only</div>
-          <div class="pricing-price">$250 USD</div>
-          <div class="pricing-note">&nbsp;</div>
-          <a href="calendar.html" class="btn btn-red pricing-btn">Reserve Your Spot</a>
-          <div class="pricing-features-label">Key features:</div>
-          <ul class="pricing-features">
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Bleeding simulator training</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Multi-casualty triage scenarios</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Chest wound sealing practice</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Patient assessment under time pressure</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>TECC certification</li>
-          </ul>
-        </div>
+      <div class="pricing-grid single fade-in">
         <div class="pricing-card featured">
-          <div class="pricing-label">Training + Kit</div>
-          <div class="pricing-price">$300 USD</div>
-          <div class="pricing-note">Includes $179.95 Reecoil Deploy Trauma Kit</div>
+          <div class="pricing-label">Stop The Bleed — Fundamentals</div>
+          <div class="pricing-price">$95 USD</div>
+          <div class="pricing-note">Per person &middot; 3-hour course</div>
           <a href="calendar.html" class="btn btn-red pricing-btn">Reserve Your Spot</a>
           <div class="pricing-features-label">Key features:</div>
           <ul class="pricing-features">
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Everything in Training Only</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Reecoil Deploy Trauma Kit ($179.95 value)</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>CAT Gen 7 Tourniquet</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>QuikClot Combat Gauze</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Chest seal (vented)</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Personal walkthrough of every kit item with Easton</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Walk out fully equipped and ready</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Hands-on practice on bleeding simulators</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Direct pressure, wound packing, and tourniquet application</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Scene safety and calling for help</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>No experience necessary</li>
+            <li><span class="check-icon"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></span>Group and organization bookings available</li>
           </ul>
         </div>
       </div>
@@ -390,9 +375,9 @@
             <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
-          <p class="testimonial-quote">"Easton is phenomenal. He's an excellent teacher with broad real-world experience who creates a safe and effective learning environment. Best tactical training I've taken."</p>
+          <p class="testimonial-quote">"Easton is phenomenal. He's an excellent teacher with broad real-world experience who creates a safe and effective learning environment. Best hands-on training I've taken."</p>
           <div class="testimonial-author">GunmenUSA</div>
-          <div class="testimonial-course">Tactical Emergency Casualty Care</div>
+          <div class="testimonial-course">Stop The Bleed</div>
         </div>
         <div class="testimonial-card fade-in">
           <div class="stars">
@@ -402,9 +387,9 @@
             <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
-          <p class="testimonial-quote">"I carry every day and never thought about what happens after the shot. This course filled a critical gap. The hands-on reps built confidence I didn't know I was missing."</p>
-          <div class="testimonial-author">Marcus W.</div>
-          <div class="testimonial-course">Tactical Emergency Casualty Care</div>
+          <p class="testimonial-quote">"Three hours and I walked out knowing exactly what to do if I'm ever the first person on scene. Simple, practical, no fluff."</p>
+          <div class="testimonial-author">Lisa R.</div>
+          <div class="testimonial-course">Stop The Bleed</div>
         </div>
         <div class="testimonial-card fade-in">
           <div class="stars">
@@ -416,7 +401,7 @@
           </div>
           <p class="testimonial-quote">"Iron Rescue made learning the basics actually feel basic and simple. Getting right to the hands-on part of learning each skill kept the class engaging and fun. 10/10 I'll be back."</p>
           <div class="testimonial-author">Sam P.</div>
-          <div class="testimonial-course">TECC For First Responders</div>
+          <div class="testimonial-course">Stop The Bleed</div>
         </div>
       </div>
     </div>
@@ -424,13 +409,13 @@
 
   <section class="final-cta">
     <div class="final-cta-bg">
-      <img src="images/hero-right.jpg" alt="Tactical training background" />
+      <img src="images/hero-right.jpg" alt="Stop the Bleed training background" />
     </div>
     <div class="final-cta-content fade-in">
-      <h2 class="final-cta-headline">Don't Just Witness an Emergency. Know How to Save a Life.</h2>
+      <h2 class="final-cta-headline">Don't Just Watch Someone Bleed Out. Know How to Stop It.</h2>
       <p class="final-cta-subhead">Get Certified.</p>
-      <p class="final-cta-body">One class. Real skills. The confidence to act fast and save a life when seconds matter most.</p>
-      <a href="index.html#courses" class="btn btn-red">Find Your Course</a>
+      <p class="final-cta-body">Three hours. Real skills. The confidence to act fast and save a life when seconds matter most.</p>
+      <a href="calendar.html" class="btn btn-red">Find a Class</a>
     </div>
   </section>
 
@@ -476,7 +461,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="container"><p>© 2024 Iron Rescue PLLC. All Rights Reserved.</p></div>
+      <div class="container"><p>&copy; 2024 Iron Rescue PLLC. All Rights Reserved.</p></div>
     </div>
   </footer>
 
