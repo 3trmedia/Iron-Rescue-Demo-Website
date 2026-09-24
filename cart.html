@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart | Iron Rescue</title>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #8B1A1A; --red-accent: #C0392B; --white: #ffffff; --off-white: #F8F8F8;
+      --dark: #1A1A1A; --dark-footer: #111111; --gray: #6B7280; --gray-light: #9CA3AF;
+      --gold: #F59E0B; --border: #E5E7EB;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; font-size: 16px; color: var(--dark); background: var(--white); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.1; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 4px; font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; transition: all 0.2s ease; border: 2px solid transparent; }
+    .btn-red { background: var(--red); color: var(--white); border-color: var(--red); }
+    .btn-red:hover { background: #6d1414; border-color: #6d1414; transform: translateY(-1px); }
+    .btn-red:disabled { background: var(--gray-light); border-color: var(--gray-light); cursor: not-allowed; }
+    .btn-ghost { background: transparent; color: var(--dark); border-color: var(--dark); }
+    .btn-ghost:hover { background: var(--dark); color: var(--white); transform: translateY(-1px); }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid var(--border); box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; }
+    .nav-right { display: flex; align-items: center; margin-left: auto; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.05em; color: var(--dark); }
+    .nav-logo-mark { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; }
+    .nav-logo-mark img { width: 100%; height: 100%; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin-right: 32px; }
+    .nav-links a { font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 500; color: var(--gray); letter-spacing: 0.02em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-links a.active { color: var(--red); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 5px; }
+    .nav-dropdown > a::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; margin-top: 1px; transition: transform 0.2s; }
+    .nav-dropdown:hover > a::after { transform: rotate(180deg); }
+    .dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); min-width: 240px; padding: 8px 0; z-index: 999; }
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .nav-dropdown.open > a::after { transform: rotate(180deg); }
+    .dropdown-menu a { display: block; padding: 10px 20px; font-size: 14px; font-weight: 500; color: var(--dark); white-space: nowrap; transition: background 0.15s, color 0.15s; letter-spacing: 0; }
+    .dropdown-menu a:hover { background: var(--off-white); color: var(--red); }
+    .nav-cart-link { position: relative; display: flex; align-items: center; margin-right: 22px; color: var(--dark); }
+    .nav-cart-link svg { width: 22px; height: 22px; }
+    .cart-count-badge { display: none; align-items: center; justify-content: center; position: absolute; top: -8px; right: -10px; width: 17px; height: 17px; border-radius: 50%; background: var(--red); color: var(--white); font-size: 10px; font-weight: 700; }
+    .nav-cart-mobile { display: none; margin-right: 18px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 24px 40px; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+    .mobile-menu ul a { font-size: 16px; font-weight: 500; color: var(--dark); }
+
+    .cart-hero { margin-top: 72px; padding: 56px 0 32px; }
+    .cart-hero h1 { font-size: clamp(30px, 4vw, 44px); color: var(--dark); }
+
+    .cart-empty { text-align: center; padding: 80px 20px; background: var(--off-white); border-radius: 8px; margin: 0 0 96px; }
+    .cart-empty svg { width: 48px; height: 48px; stroke: var(--gray-light); fill: none; stroke-width: 1.5; margin: 0 auto 20px; }
+    .cart-empty p { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray); margin-bottom: 24px; }
+
+    .cart-layout { display: grid; grid-template-columns: 1.7fr 1fr; gap: 48px; margin-bottom: 96px; align-items: start; }
+    .cart-items { display: flex; flex-direction: column; gap: 14px; }
+    .cart-row { display: flex; align-items: center; gap: 16px; border: 1px solid var(--border); padding: 16px; border-radius: 6px; }
+    .cart-row-icon { width: 56px; height: 56px; flex-shrink: 0; background: var(--off-white); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+    .cart-row-icon svg { width: 24px; height: 24px; stroke: var(--red); fill: none; stroke-width: 1.5; }
+    .cart-row-info { flex: 1; min-width: 0; }
+    .cart-row-name { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; color: var(--dark); }
+    .cart-row-price { font-size: 13px; color: var(--gray); margin-top: 2px; }
+    .cart-row-qty { display: flex; align-items: center; border: 1px solid var(--border); border-radius: 4px; flex-shrink: 0; }
+    .cart-row-qty button { width: 30px; height: 30px; background: none; border: none; cursor: pointer; font-size: 16px; color: var(--dark); }
+    .cart-row-qty button:hover { background: var(--off-white); }
+    .cart-row-qty span { width: 28px; text-align: center; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; }
+    .cart-row-total { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px; color: var(--dark); width: 90px; text-align: right; flex-shrink: 0; }
+    .cart-row-remove { background: none; border: none; color: var(--gray-light); cursor: pointer; font-size: 13px; flex-shrink: 0; padding: 4px; }
+    .cart-row-remove:hover { color: var(--red); }
+
+    .cart-summary { border: 1px solid var(--border); border-radius: 6px; padding: 28px; background: var(--off-white); position: sticky; top: 96px; }
+    .cart-summary h2 { font-size: 14px; letter-spacing: 0.08em; color: var(--gray); margin-bottom: 18px; }
+    .cart-summary-row { display: flex; justify-content: space-between; align-items: center; font-size: 15px; color: var(--dark); margin-bottom: 8px; }
+    .cart-summary-total { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; color: var(--dark); }
+    .cart-summary-note { font-size: 13px; color: var(--gray); line-height: 1.6; margin: 16px 0 20px; }
+    .cart-summary .btn { width: 100%; }
+    .continue-shopping { display: block; text-align: center; font-size: 13px; font-weight: 700; color: var(--red); margin-top: 16px; }
+
+    footer { background: var(--dark-footer); color: var(--white); padding: 72px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 60px; padding-bottom: 56px; max-width: 1200px; margin: 0 auto; padding-left: 40px; padding-right: 40px; }
+    .footer-tagline { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.5); margin-bottom: 24px; max-width: 260px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 4px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .footer-social a:hover { background: var(--red); }
+    .footer-social svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.7); }
+    .footer-col-heading { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; text-align: center; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+    @media (max-width: 900px) {
+      .cart-layout { grid-template-columns: 1fr; }
+      .cart-summary { position: static; }
+    }
+    @media (max-width: 768px) {
+      .nav-right { display: none; } .hamburger { display: flex; } .nav-cart-mobile { display: flex; }
+      .container { padding: 0 20px; } .nav-inner { padding: 0 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+    @media (max-width: 560px) {
+      .cart-row { flex-wrap: wrap; }
+      .cart-row-total { text-align: left; width: auto; margin-left: 72px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">
+          <img src="images/logo-mark.png" alt="Iron Rescue" />
+        </div>
+        IRON RESCUE
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li class="nav-dropdown">
+            <a href="index.html#courses">Courses</a>
+            <div class="dropdown-menu">
+              <a href="tactical-emergency-casualty-care.html">TECC Certification</a>
+              <a href="scenario-training.html">Scenario Training</a>
+              <a href="stop-the-bleed.html">Stop The Bleed</a>
+            </div>
+          </li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="index.html#about">About</a></li>
+        </ul>
+        <a href="cart.html" class="nav-cart-link active" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3c-.6.6-.2 1.7.7 1.7H17m-10 0a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4z"/></svg><span class="cart-count-badge">0</span></a>
+        <a href="calendar.html" class="btn btn-red" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
+      </div>
+      <a href="cart.html" class="nav-cart-link nav-cart-mobile" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3c-.6.6-.2 1.7.7 1.7H17m-10 0a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4z"/></svg><span class="cart-count-badge">0</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li>
+        <a href="#" id="mobileCoursesToggle" style="display:flex;justify-content:space-between;align-items:center;">
+          Courses <span id="mobileCoursesArrow" style="font-size:11px;transition:transform 0.2s;">▼</span>
+        </a>
+        <ul id="mobileCoursesList" style="display:none;list-style:none;padding-left:16px;margin-top:12px;gap:12px;flex-direction:column;">
+          <li><a href="tactical-emergency-casualty-care.html" style="font-size:14px;color:var(--gray);">TECC Certification</a></li>
+          <li><a href="scenario-training.html" style="font-size:14px;color:var(--gray);">Scenario Training</a></li>
+          <li><a href="stop-the-bleed.html" style="font-size:14px;color:var(--gray);">Stop The Bleed</a></li>
+        </ul>
+      </li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+    <a href="calendar.html" class="btn btn-red" style="width: 100%; justify-content: center; margin-top: 8px;">Get Certified</a>
+  </div>
+
+  <div class="cart-hero">
+    <div class="container">
+      <h1>Your Cart</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="cart-empty" class="cart-empty" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3c-.6.6-.2 1.7.7 1.7H17m-10 0a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4z"/></svg>
+      <p>Your cart is empty</p>
+      <a href="shop.html" class="btn btn-red">Continue Shopping</a>
+    </div>
+
+    <div id="cart-content" class="cart-layout" style="display:none;">
+      <div id="cart-items" class="cart-items"></div>
+
+      <div class="cart-summary">
+        <h2>ORDER SUMMARY</h2>
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal" class="cart-summary-total">$0.00</span>
+        </div>
+        <p class="cart-summary-note">Not a live checkout. Tap the button below to send this list to Easton by email &mdash; he'll confirm current pricing, availability, and shipping or pickup before anything is charged.</p>
+        <button id="checkout-btn" type="button" class="btn btn-red">Send Order Request</button>
+        <a href="shop.html" class="continue-shopping">Continue Shopping</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="nav-logo" style="margin-bottom: 16px; display: inline-flex; color: white;">
+          <div class="nav-logo-mark">
+            <img src="images/logo-mark.png" alt="Iron Rescue" />
+          </div>
+          IRON RESCUE
+        </a>
+        <p class="footer-tagline">Safety at home, in action, and in the wild.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/ironrescue_" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-heading">Courses</div>
+        <ul class="footer-links">
+          <li><a href="tactical-emergency-casualty-care.html">TECC Certification</a></li>
+          <li><a href="scenario-training.html">Scenario Training</a></li>
+          <li><a href="stop-the-bleed.html">Stop The Bleed</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container"><p>&copy; 2024 Iron Rescue PLLC. All Rights Reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>
+    let dropdownCloseTimer;
+    document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+      dropdown.addEventListener('mouseenter', () => {
+        clearTimeout(dropdownCloseTimer);
+        document.querySelectorAll('.nav-dropdown').forEach(d => { if (d !== dropdown) d.classList.remove('open'); });
+        dropdown.classList.add('open');
+      });
+      dropdown.addEventListener('mouseleave', () => {
+        dropdownCloseTimer = setTimeout(() => dropdown.classList.remove('open'), 300);
+      });
+    });
+    document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const dropdown = link.closest('.nav-dropdown');
+        const isOpen = dropdown.classList.contains('open');
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        if (!isOpen) dropdown.classList.add('open');
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-dropdown')) document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    const mobileCoursesToggle = document.getElementById('mobileCoursesToggle');
+    const mobileCoursesList = document.getElementById('mobileCoursesList');
+    const mobileCoursesArrow = document.getElementById('mobileCoursesArrow');
+    if (mobileCoursesToggle) {
+      mobileCoursesToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const open = mobileCoursesList.style.display === 'flex';
+        mobileCoursesList.style.display = open ? 'none' : 'flex';
+        mobileCoursesArrow.style.transform = open ? '' : 'rotate(180deg)';
+      });
+    }
+    mobileMenu.querySelectorAll('a:not(#mobileCoursesToggle)').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // CART RENDER
+    function renderRow(item) {
+      return `
+        <div class="cart-row" data-row="${item.id}">
+          <div class="cart-row-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <div class="cart-row-info">
+            <div class="cart-row-name">${item.name}</div>
+            <div class="cart-row-price">${IronCart.formatPrice(item.price)} each</div>
+          </div>
+          <div class="cart-row-qty">
+            <button type="button" class="qty-decrease" data-id="${item.id}" aria-label="Decrease quantity">&minus;</button>
+            <span>${item.qty}</span>
+            <button type="button" class="qty-increase" data-id="${item.id}" aria-label="Increase quantity">+</button>
+          </div>
+          <div class="cart-row-total">${IronCart.formatPrice(item.price * item.qty)}</div>
+          <button type="button" class="cart-row-remove" data-id="${item.id}" aria-label="Remove item">&times;</button>
+        </div>
+      `;
+    }
+
+    function render() {
+      const cart = IronCart.getCart();
+      const emptyEl = document.getElementById('cart-empty');
+      const contentEl = document.getElementById('cart-content');
+      const itemsEl = document.getElementById('cart-items');
+      const subtotalEl = document.getElementById('cart-subtotal');
+      const checkoutBtn = document.getElementById('checkout-btn');
+
+      if (cart.length === 0) {
+        emptyEl.style.display = 'block';
+        contentEl.style.display = 'none';
+        itemsEl.innerHTML = '';
+        return;
+      }
+
+      emptyEl.style.display = 'none';
+      contentEl.style.display = 'grid';
+      itemsEl.innerHTML = cart.map(renderRow).join('');
+      subtotalEl.textContent = IronCart.formatPrice(IronCart.getCartTotal());
+
+      itemsEl.querySelectorAll('.qty-decrease').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = cart.find(i => i.id === btn.dataset.id);
+          if (item) IronCart.setQty(item.id, item.qty - 1);
+        });
+      });
+      itemsEl.querySelectorAll('.qty-increase').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = cart.find(i => i.id === btn.dataset.id);
+          if (item) IronCart.setQty(item.id, item.qty + 1);
+        });
+      });
+      itemsEl.querySelectorAll('.cart-row-remove').forEach(btn => {
+        btn.addEventListener('click', () => IronCart.removeFromCart(btn.dataset.id));
+      });
+
+      checkoutBtn.onclick = () => {
+        const lines = cart.map(i => `- ${i.name} x${i.qty} (${IronCart.formatPrice(i.price)} each) = ${IronCart.formatPrice(i.price * i.qty)}`);
+        const body = `Hi Easton,%0D%0A%0D%0AI'd like to order the following:%0D%0A%0D%0A${encodeURIComponent(lines.join('\n'))}%0D%0A%0D%0ATotal: ${encodeURIComponent(IronCart.formatPrice(IronCart.getCartTotal()))}%0D%0A%0D%0A[Your name and best way to reach you]`;
+        window.location.href = `mailto:classes@ironrescue.org?subject=${encodeURIComponent('Shop Order Request')}&body=${body}`;
+      };
+    }
+
+    render();
+    window.addEventListener('cart:updated', render);
+  </script>
+</body>
+</html>

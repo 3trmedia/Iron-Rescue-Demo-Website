@@ -54,6 +54,12 @@
     .dropdown-menu a.active { color: var(--red); font-weight: 600; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); transition: all 0.3s; }
+    .nav-cart-link { position: relative; display: flex; align-items: center; margin-right: 22px; color: var(--dark); }
+    .nav-cart-link svg { width: 22px; height: 22px; }
+    .cart-count-badge { display: none; align-items: center; justify-content: center; position: absolute; top: -8px; right: -10px; width: 17px; height: 17px; border-radius: 50%; background: var(--red); color: var(--white); font-size: 10px; font-weight: 700; font-family: 'Barlow', sans-serif; }
+    .nav-cart-mobile { display: none; margin-right: 18px; }
+    @media (max-width: 768px) { .nav-cart-mobile { display: flex; } }
+
     .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 24px 40px; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
     .mobile-menu.open { display: block; }
     .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
@@ -165,7 +171,6 @@
       </a>
       <div class="nav-right">
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
           <li class="nav-dropdown">
             <a href="index.html#courses">Courses</a>
             <div class="dropdown-menu">
@@ -178,8 +183,10 @@
           <li><a href="calendar.html">Calendar</a></li>
           <li><a href="index.html#about">About</a></li>
         </ul>
+        <a href="cart.html" class="nav-cart-link" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3c-.6.6-.2 1.7.7 1.7H17m-10 0a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4z"/></svg><span class="cart-count-badge">0</span></a>
         <a href="calendar.html" class="btn btn-red" style="padding: 10px 20px; font-size: 14px;">Get Certified</a>
       </div>
+      <a href="cart.html" class="nav-cart-link nav-cart-mobile" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3c-.6.6-.2 1.7.7 1.7H17m-10 0a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4z"/></svg><span class="cart-count-badge">0</span></a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -188,7 +195,6 @@
 
   <div class="mobile-menu" id="mobileMenu">
     <ul>
-      <li><a href="index.html">Home</a></li>
       <li>
         <a href="#" id="mobileCoursesToggle" style="display:flex;justify-content:space-between;align-items:center;">
           Courses <span id="mobileCoursesArrow" style="font-size:11px;transition:transform 0.2s;">▼</span>
@@ -506,5 +512,6 @@
       link.addEventListener('click', () => mobileMenu.classList.remove('open'));
     });
   </script>
+  <script src="cart.js"></script>
 </body>
 </html>
