@@ -192,7 +192,7 @@
           <span>Subtotal</span>
           <span id="cart-subtotal" class="cart-summary-total">$0.00</span>
         </div>
-        <p class="cart-summary-note">Not a live checkout. Tap the button below to send this list to Easton by email &mdash; he'll confirm current pricing, availability, and shipping or pickup before anything is charged.</p>
+        <p class="cart-summary-note">Not a live checkout. Tap the button below to send this list to us by email &mdash; we'll confirm current pricing, availability, and shipping or pickup before anything is charged.</p>
         <button id="checkout-btn" type="button" class="btn btn-red">Send Order Request</button>
         <a href="shop.html" class="continue-shopping">Continue Shopping</a>
       </div>
@@ -340,7 +340,7 @@
 
       checkoutBtn.onclick = () => {
         const lines = cart.map(i => `- ${i.name} x${i.qty} (${IronCart.formatPrice(i.price)} each) = ${IronCart.formatPrice(i.price * i.qty)}`);
-        const body = `Hi Easton,%0D%0A%0D%0AI'd like to order the following:%0D%0A%0D%0A${encodeURIComponent(lines.join('\n'))}%0D%0A%0D%0ATotal: ${encodeURIComponent(IronCart.formatPrice(IronCart.getCartTotal()))}%0D%0A%0D%0A[Your name and best way to reach you]`;
+        const body = `Hi,%0D%0A%0D%0AI'd like to order the following:%0D%0A%0D%0A${encodeURIComponent(lines.join('\n'))}%0D%0A%0D%0ATotal: ${encodeURIComponent(IronCart.formatPrice(IronCart.getCartTotal()))}%0D%0A%0D%0A[Your name and best way to reach you]`;
         window.location.href = `mailto:classes@ironrescue.org?subject=${encodeURIComponent('Shop Order Request')}&body=${body}`;
       };
     }

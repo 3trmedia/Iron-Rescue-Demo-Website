@@ -63,7 +63,8 @@
     .mobile-menu.open { display: block; }
     .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
     .mobile-menu ul a { font-size: 16px; font-weight: 500; color: var(--dark); }
-    .page-hero { margin-top: 72px; background: var(--off-white); padding: 80px 0; position: relative; overflow: hidden; }
+    .page-hero { margin-top: 72px; background: var(--off-white); padding: 32px 0; position: relative; overflow: hidden; }
+    .page-hero h1 { margin-bottom: 0; }
     .page-hero::before { content: ''; position: absolute; inset: 0; background-image: url('images/hero-action.jpg'); background-size: cover; background-position: center; opacity: 0.1; pointer-events: none; }
     .page-hero-content { position: relative; z-index: 1; max-width: 720px; }
     .page-hero h1 { font-size: clamp(34px, 4vw, 56px); color: var(--dark); margin-bottom: 20px; }
@@ -143,7 +144,7 @@
       .nav-right { display: none; } .hamburger { display: flex; } .nav-cart-mobile { display: flex; }
       .container { padding: 0 20px; } .nav-inner { padding: 0 20px; }
       .section { padding: 60px 0; }
-      .page-hero { padding: 56px 0; }
+      .page-hero { padding: 24px 0; }
       .march-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr; gap: 36px; }
       .final-cta { padding: 80px 0; } .final-cta-content { padding: 0 20px; }
@@ -209,23 +210,14 @@
     <div class="container">
       <div class="page-hero-content fade-in">
         <span class="eyebrow">Authorized NAR Dealer</span>
-        <h1>Shop The Gear We Train With.</h1>
-        <p>Easton is an authorized dealer for North American Rescue, the same manufacturer trusted by the military, EMS, and law enforcement. Anything below, he can order and get into your hands, individually or by the case.</p>
-        <div class="dealer-badge">
-          <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><polyline points="9 12 11 14 15 10"/></svg>
-          <span>North American Rescue Dealer</span>
-        </div>
+        <h1>Shop</h1>
       </div>
     </div>
   </div>
 
   <!-- SHOP -->
-  <section class="section" style="padding-bottom: 40px;">
+  <section class="section" style="padding-top: 40px; padding-bottom: 40px;">
     <div class="container">
-      <div class="shop-note fade-in">
-        <strong>How ordering works:</strong> This isn't a live checkout &mdash; Easton places every order personally through his North American Rescue dealer account, so pricing and availability are current at the time you reach out. Add anything below to your cart, then send it as a request from the cart page. Prices shown are current NAR list pricing and subject to change.
-      </div>
-
       <div class="fade-in">
         <div class="filter-label">Shop By Type</div>
         <div class="filter-bar" id="type-filter-bar">
@@ -610,7 +602,7 @@
     </div>
   </section>
 
-  <!-- WHY BUY THROUGH EASTON -->
+  <!-- WHY BUY WITH US -->
   <section class="section trust-section">
     <div class="container">
       <div class="section-header fade-in">
@@ -621,17 +613,17 @@
         <div class="trust-item fade-in">
           <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/><polyline points="9 12 11 14 15 10"/></svg></div>
           <div class="trust-title">Authorized Dealer</div>
-          <div class="trust-desc">Easton is a direct North American Rescue dealer, so what you order is genuine gear, not a knockoff from a marketplace listing.</div>
+          <div class="trust-desc">We're a direct North American Rescue dealer, so what you order is genuine gear, not a knockoff from a marketplace listing.</div>
         </div>
         <div class="trust-item fade-in">
           <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="trust-title">He Uses What He Sells</div>
-          <div class="trust-desc">Every item above is gear Easton personally teaches with in class, not a product he's just reselling sight unseen.</div>
+          <div class="trust-title">We Use What We Sell</div>
+          <div class="trust-desc">Every item above is gear we personally teach with in class, not a product we're just reselling sight unseen.</div>
         </div>
         <div class="trust-item fade-in">
           <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <div class="trust-title">Help Picking The Right Kit</div>
-          <div class="trust-desc">Not sure what you need? Tell Easton what it's for &mdash; home, vehicle, business, or trail &mdash; and he'll point you to the right item.</div>
+          <div class="trust-desc">Not sure what you need? Tell us what it's for &mdash; home, vehicle, business, or trail &mdash; and we'll point you to the right item.</div>
         </div>
       </div>
     </div>
