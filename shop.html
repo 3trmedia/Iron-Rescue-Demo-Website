@@ -87,6 +87,7 @@
     .product-card:hover { border-color: var(--red); }
     .product-card-image { position: relative; aspect-ratio: 1 / 1; background: var(--off-white); display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .product-card-image svg { width: 30%; height: 30%; stroke: var(--red); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; }
+    .product-card-photo { width: 100%; height: 100%; object-fit: contain; padding: 12%; box-sizing: border-box; }
     .product-card-cat { position: absolute; top: 10px; left: 10px; background: rgba(17,17,17,0.85); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 8px; }
     .product-card-badge { position: absolute; top: 10px; right: 10px; background: var(--gold); color: var(--dark); font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 8px; }
     .product-card-brand { font-size: 11px; color: var(--gray-light); margin-top: -2px; }
@@ -243,7 +244,7 @@
         <!-- Tourniquets -->
         <div class="product-item fade-in" data-type="Tourniquets" data-usecase="Everyday Carry,Vehicle">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Tourniquets</span><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Tourniquets</span><img class="product-card-photo" src="images/products/cat-tourniquet.jpg" alt="Combat Application Tourniquet (C-A-T)" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Tourniquets</div>
               <div class="product-card-brand">North American Rescue</div>
@@ -258,7 +259,7 @@
         </div>
         <div class="product-item fade-in" data-type="Tourniquets" data-usecase="Everyday Carry">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Tourniquets</span><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Tourniquets</span><img class="product-card-photo" src="images/products/etq-gen2.jpg" alt="ETQ Gen 2 Everyday Tourniquet" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Tourniquets</div>
               <div class="product-card-brand">Snake Staff Systems</div>
@@ -275,7 +276,7 @@
         <!-- Wound Care -->
         <div class="product-item fade-in" data-type="Wound Care" data-usecase="Everyday Carry">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><img class="product-card-photo" src="images/products/quikclot-combat-gauze.jpg" alt="QuikClot Combat Gauze" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Wound Care</div>
               <div class="product-card-brand">North American Rescue</div>
@@ -290,7 +291,7 @@
         </div>
         <div class="product-item fade-in" data-type="Wound Care" data-usecase="Everyday Carry">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><img class="product-card-photo" src="images/products/combat-gauze-le.jpg" alt="Combat Gauze LE" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Wound Care</div>
               <div class="product-card-brand">North American Rescue</div>
@@ -305,7 +306,7 @@
         </div>
         <div class="product-item fade-in" data-type="Wound Care" data-usecase="Team &amp; Organization">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><span class="product-card-badge">Training Aid</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><span class="product-card-badge">Training Aid</span><img class="product-card-photo" src="images/products/combat-gauze-trainer.jpg" alt="Combat Gauze Trainer" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Wound Care</div>
               <div class="product-card-brand">North American Rescue</div>
@@ -320,7 +321,7 @@
         </div>
         <div class="product-item fade-in" data-type="Wound Care" data-usecase="Home,Vehicle">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><img class="product-card-photo" src="images/products/etd-8x10.jpg" alt="Emergency Trauma Dressing (ETD) 8x10" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Wound Care</div>
               <div class="product-card-brand">North American Rescue</div>
@@ -335,7 +336,7 @@
         </div>
         <div class="product-item fade-in" data-type="Wound Care" data-usecase="Everyday Carry,Home">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><img class="product-card-photo" src="images/products/wound-packing-gauze.jpg" alt="Wound Packing Gauze (3x5yd)" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Wound Care</div>
               <div class="product-card-brand">North American Rescue</div>
@@ -350,7 +351,7 @@
         </div>
         <div class="product-item fade-in" data-type="Wound Care" data-usecase="Home,Everyday Carry">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><img class="product-card-photo" src="images/products/superskin-bandages.jpg" alt="SuperSkin Assorted Bandages" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Wound Care</div>
               <div class="product-card-brand">MyMedic</div>
@@ -367,7 +368,7 @@
         <!-- Airway & Chest -->
         <div class="product-item fade-in" data-type="Airway &amp; Chest" data-usecase="Team &amp; Organization">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Airway</span><svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M19.07 4.93l-4.24 4.24M9.17 14.83l-4.24 4.24"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Airway</span><img class="product-card-photo" src="images/products/npa-lubricant.jpg" alt="Nasopharyngeal Airway w/ Lubricant" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Airway &amp; Chest</div>
               <div class="product-card-brand">North American Rescue</div>
@@ -382,7 +383,7 @@
         </div>
         <div class="product-item fade-in" data-type="Airway &amp; Chest" data-usecase="Everyday Carry">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Chest Seals</span><svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M19.07 4.93l-4.24 4.24M9.17 14.83l-4.24 4.24"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Chest Seals</span><img class="product-card-photo" src="images/products/hyfin-individual.jpg" alt="HyFin Vent Chest Seal (Individual)" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Airway &amp; Chest</div>
               <div class="product-card-brand">North American Rescue</div>
@@ -397,7 +398,7 @@
         </div>
         <div class="product-item fade-in" data-type="Airway &amp; Chest" data-usecase="Everyday Carry">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Chest Seals</span><svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M19.07 4.93l-4.24 4.24M9.17 14.83l-4.24 4.24"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Chest Seals</span><img class="product-card-photo" src="images/products/hyfin-twin-pack.jpg" alt="HyFin Vent Chest Seal Twin Pack" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Airway &amp; Chest</div>
               <div class="product-card-brand">North American Rescue</div>
@@ -412,7 +413,7 @@
         </div>
         <div class="product-item fade-in" data-type="Airway &amp; Chest" data-usecase="Team &amp; Organization">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Chest Seals</span><span class="product-card-badge">Training Aid</span><svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M19.07 4.93l-4.24 4.24M9.17 14.83l-4.24 4.24"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Chest Seals</span><span class="product-card-badge">Training Aid</span><img class="product-card-photo" src="images/products/hyfin-trainer.jpg" alt="HyFin Chest Seal Twin Pack Trainer" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Airway &amp; Chest</div>
               <div class="product-card-brand">North American Rescue</div>
@@ -429,7 +430,7 @@
         <!-- Kits & Bags -->
         <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Everyday Carry">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">IFAK</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">IFAK</span><img class="product-card-photo" src="images/products/next-gen-ifak.jpg" alt="Next-Generation IFAK" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Kits &amp; Bags</div>
               <div class="product-card-brand">Snake Staff Systems</div>
@@ -459,7 +460,7 @@
         </div>
         <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Home,Vehicle">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Full Kit</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Full Kit</span><img class="product-card-photo" src="images/products/myfak.jpg" alt="MyFAK First Aid Kit" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Kits &amp; Bags</div>
               <div class="product-card-brand">MyMedic</div>
@@ -474,7 +475,7 @@
         </div>
         <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Vehicle,Home">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Med Pack</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Med Pack</span><img class="product-card-photo" src="images/products/bleed-stopper.jpg" alt="Bleed Stopper Med Pack" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Kits &amp; Bags</div>
               <div class="product-card-brand">MyMedic</div>
@@ -489,7 +490,7 @@
         </div>
         <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Everyday Carry">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Med Pack</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Med Pack</span><img class="product-card-photo" src="images/products/hiker-medic.jpg" alt="Hiker Medic Med Pack" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Kits &amp; Bags</div>
               <div class="product-card-brand">MyMedic</div>
@@ -504,7 +505,7 @@
         </div>
         <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Home,Everyday Carry">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Med Pack</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Med Pack</span><img class="product-card-photo" src="images/products/zzips-med-pack.jpg" alt="ZZIPS Med Pack" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Kits &amp; Bags</div>
               <div class="product-card-brand">MyMedic</div>
@@ -519,7 +520,7 @@
         </div>
         <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Vehicle,Team &amp; Organization">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">IFAK</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">IFAK</span><img class="product-card-photo" src="images/products/responder-ifak.jpg" alt="Responder IFAK" loading="lazy"></div>
             <div class="product-card-body">
               <div class="product-card-type">Kits &amp; Bags</div>
               <div class="product-card-brand">LT Creed</div>
