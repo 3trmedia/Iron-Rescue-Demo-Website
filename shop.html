@@ -88,6 +88,8 @@
     .product-card-image { position: relative; aspect-ratio: 1 / 1; background: var(--off-white); display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .product-card-image svg { width: 30%; height: 30%; stroke: var(--red); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; }
     .product-card-cat { position: absolute; top: 10px; left: 10px; background: rgba(17,17,17,0.85); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 8px; }
+    .product-card-badge { position: absolute; top: 10px; right: 10px; background: var(--gold); color: var(--dark); font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 8px; }
+    .product-card-brand { font-size: 11px; color: var(--gray-light); margin-top: -2px; }
     .product-card-body { padding: 16px; display: flex; flex-direction: column; flex: 1; gap: 6px; }
     .product-card-type { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red-accent); }
     .product-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; color: var(--dark); line-height: 1.25; }
@@ -222,9 +224,10 @@
         <div class="filter-label">Shop By Type</div>
         <div class="filter-bar" id="type-filter-bar">
           <button class="filter-btn type-filter-btn" data-type="All" data-active="true">All</button>
-          <button class="filter-btn type-filter-btn" data-type="Bleeding Control">Bleeding Control</button>
-          <button class="filter-btn type-filter-btn" data-type="Kits & Bags">Kits &amp; Bags</button>
-          <button class="filter-btn type-filter-btn" data-type="AEDs">AEDs</button>
+          <button class="filter-btn type-filter-btn" data-type="Tourniquets">Tourniquets</button>
+          <button class="filter-btn type-filter-btn" data-type="Wound Care">Wound Care</button>
+          <button class="filter-btn type-filter-btn" data-type="Airway &amp; Chest">Airway &amp; Chest</button>
+          <button class="filter-btn type-filter-btn" data-type="Kits &amp; Bags">Kits &amp; Bags</button>
         </div>
         <div class="filter-label">Shop By Use Case</div>
         <div class="filter-bar" id="usecase-filter-bar">
@@ -238,324 +241,293 @@
 
       <div class="product-grid" id="product-grid">
         <!-- Tourniquets -->
-        <div class="product-item fade-in" data-type="Bleeding Control" data-usecase="Everyday Carry,Vehicle">
+        <div class="product-item fade-in" data-type="Tourniquets" data-usecase="Everyday Carry,Vehicle">
           <div class="product-card">
             <div class="product-card-image"><span class="product-card-cat">Tourniquets</span><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
             <div class="product-card-body">
-              <div class="product-card-type">Bleeding Control</div>
-              <div class="product-card-title">C-A-T&reg; Gen 7 Tourniquet</div>
-              <div class="product-card-desc">The same Combat Application Tourniquet taught and used in every Iron Rescue course.</div>
+              <div class="product-card-type">Tourniquets</div>
+              <div class="product-card-brand">North American Rescue</div>
+              <div class="product-card-title">Combat Application Tourniquet (C-A-T)</div>
+              <div class="product-card-desc">Field tourniquet for life-threatening extremity bleeding; the U.S. Army's issued tourniquet since 2005.</div>
               <div class="product-card-foot">
-                <div class="product-card-price">$34.99</div>
-                <button class="add-to-cart-btn" data-id="cat-gen7-tq" data-name="C-A-T Gen 7 Tourniquet" data-price="34.99" data-category="Tourniquets">Add to Cart</button>
+                <div class="product-card-price">From $34.99</div>
+                <button class="add-to-cart-btn" data-id="cat-tourniquet" data-name="Combat Application Tourniquet (C-A-T)" data-price="34.99" data-category="Tourniquets">Add to Cart</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="product-item fade-in" data-type="Bleeding Control" data-usecase="Everyday Carry,Vehicle">
+        <div class="product-item fade-in" data-type="Tourniquets" data-usecase="Everyday Carry">
           <div class="product-card">
             <div class="product-card-image"><span class="product-card-cat">Tourniquets</span><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
             <div class="product-card-body">
-              <div class="product-card-type">Bleeding Control</div>
-              <div class="product-card-title">Black C-A-T&reg; Gen 7 Rigid Case</div>
-              <div class="product-card-desc">A rigid carry case keeps the tourniquet protected and ready for fast, one-handed deployment.</div>
+              <div class="product-card-type">Tourniquets</div>
+              <div class="product-card-brand">Snake Staff Systems</div>
+              <div class="product-card-title">ETQ Gen 2 Everyday Tourniquet</div>
+              <div class="product-card-desc">Compact windlass tourniquet built to fit in a pocket, bag, or glovebox.</div>
               <div class="product-card-foot">
-                <div class="product-card-price">$74.99</div>
-                <button class="add-to-cart-btn" data-id="cat-gen7-rigid" data-name="Black C-A-T Gen 7 Rigid Case" data-price="74.99" data-category="Tourniquets">Add to Cart</button>
+                <div class="product-card-price">$31.99</div>
+                <button class="add-to-cart-btn" data-id="etq-gen2" data-name="ETQ Gen 2 Everyday Tourniquet" data-price="31.99" data-category="Tourniquets">Add to Cart</button>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Chest Seals -->
-        <div class="product-item fade-in" data-type="Bleeding Control" data-usecase="Everyday Carry">
+        <!-- Wound Care -->
+        <div class="product-item fade-in" data-type="Wound Care" data-usecase="Everyday Carry">
+          <div class="product-card">
+            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="product-card-body">
+              <div class="product-card-type">Wound Care</div>
+              <div class="product-card-brand">North American Rescue</div>
+              <div class="product-card-title">QuikClot Combat Gauze</div>
+              <div class="product-card-desc">Hemostatic gauze that accelerates clotting on bleeding a tourniquet can't reach.</div>
+              <div class="product-card-foot">
+                <div class="product-card-price">$55.39</div>
+                <button class="add-to-cart-btn" data-id="quikclot-combat-gauze" data-name="QuikClot Combat Gauze" data-price="55.39" data-category="Wound Care">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-item fade-in" data-type="Wound Care" data-usecase="Everyday Carry">
+          <div class="product-card">
+            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="product-card-body">
+              <div class="product-card-type">Wound Care</div>
+              <div class="product-card-brand">North American Rescue</div>
+              <div class="product-card-title">Combat Gauze LE</div>
+              <div class="product-card-desc">Kaolin-based hemostatic gauze for controlling severe bleeding outside a tourniquet's reach.</div>
+              <div class="product-card-foot">
+                <div class="product-card-price">$42.89</div>
+                <button class="add-to-cart-btn" data-id="combat-gauze-le" data-name="Combat Gauze LE" data-price="42.89" data-category="Wound Care">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-item fade-in" data-type="Wound Care" data-usecase="Team &amp; Organization">
+          <div class="product-card">
+            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><span class="product-card-badge">Training Aid</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="product-card-body">
+              <div class="product-card-type">Wound Care</div>
+              <div class="product-card-brand">North American Rescue</div>
+              <div class="product-card-title">Combat Gauze Trainer</div>
+              <div class="product-card-desc">Inert practice gauze for teaching proper wound-packing technique, no hemostatic agent.</div>
+              <div class="product-card-foot">
+                <div class="product-card-price">$10.99</div>
+                <button class="add-to-cart-btn" data-id="combat-gauze-trainer" data-name="Combat Gauze Trainer" data-price="10.99" data-category="Wound Care">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-item fade-in" data-type="Wound Care" data-usecase="Home,Vehicle">
+          <div class="product-card">
+            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="product-card-body">
+              <div class="product-card-type">Wound Care</div>
+              <div class="product-card-brand">North American Rescue</div>
+              <div class="product-card-title">Emergency Trauma Dressing (ETD) 8"x10"</div>
+              <div class="product-card-desc">Large pressure dressing with a built-in elastic wrap; doubles as a sling or splint tie.</div>
+              <div class="product-card-foot">
+                <div class="product-card-price">$9.99</div>
+                <button class="add-to-cart-btn" data-id="etd-8x10" data-name="Emergency Trauma Dressing 8x10" data-price="9.99" data-category="Wound Care">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-item fade-in" data-type="Wound Care" data-usecase="Everyday Carry,Home">
+          <div class="product-card">
+            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="product-card-body">
+              <div class="product-card-type">Wound Care</div>
+              <div class="product-card-brand">North American Rescue</div>
+              <div class="product-card-title">Wound Packing Gauze (3"x5yd)</div>
+              <div class="product-card-desc">Basic sterile Z-fold gauze for wound packing or general bandaging.</div>
+              <div class="product-card-foot">
+                <div class="product-card-price">$4.69</div>
+                <button class="add-to-cart-btn" data-id="wound-packing-gauze" data-name="Wound Packing Gauze" data-price="4.69" data-category="Wound Care">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-item fade-in" data-type="Wound Care" data-usecase="Home,Everyday Carry">
+          <div class="product-card">
+            <div class="product-card-image"><span class="product-card-cat">Wound Care</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+            <div class="product-card-body">
+              <div class="product-card-type">Wound Care</div>
+              <div class="product-card-brand">MyMedic</div>
+              <div class="product-card-title">SuperSkin Assorted Bandages (12-Pack)</div>
+              <div class="product-card-desc">Aloe-pad adhesive bandages for everyday cuts and scrapes.</div>
+              <div class="product-card-foot">
+                <div class="product-card-price">$6.95</div>
+                <button class="add-to-cart-btn" data-id="superskin-bandages" data-name="SuperSkin Assorted Bandages" data-price="6.95" data-category="Wound Care">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Airway & Chest -->
+        <div class="product-item fade-in" data-type="Airway &amp; Chest" data-usecase="Team &amp; Organization">
+          <div class="product-card">
+            <div class="product-card-image"><span class="product-card-cat">Airway</span><svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M19.07 4.93l-4.24 4.24M9.17 14.83l-4.24 4.24"/></svg></div>
+            <div class="product-card-body">
+              <div class="product-card-type">Airway &amp; Chest</div>
+              <div class="product-card-brand">North American Rescue</div>
+              <div class="product-card-title">Nasopharyngeal Airway w/ Lubricant</div>
+              <div class="product-card-desc">Airway adjunct for semi-conscious or unconscious patients who can't maintain their own airway.</div>
+              <div class="product-card-foot">
+                <div class="product-card-price">From $5.99</div>
+                <button class="add-to-cart-btn" data-id="npa-lubricant" data-name="Nasopharyngeal Airway" data-price="5.99" data-category="Airway & Chest">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-item fade-in" data-type="Airway &amp; Chest" data-usecase="Everyday Carry">
           <div class="product-card">
             <div class="product-card-image"><span class="product-card-cat">Chest Seals</span><svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M19.07 4.93l-4.24 4.24M9.17 14.83l-4.24 4.24"/></svg></div>
             <div class="product-card-body">
-              <div class="product-card-type">Bleeding Control</div>
-              <div class="product-card-title">HyFin&reg; Vent Chest Seal Twin Pack</div>
-              <div class="product-card-desc">Vented seals that let trapped air escape so a chest wound doesn't collapse a lung.</div>
+              <div class="product-card-type">Airway &amp; Chest</div>
+              <div class="product-card-brand">North American Rescue</div>
+              <div class="product-card-title">HyFin Vent Chest Seal (Individual)</div>
+              <div class="product-card-desc">Vented seal that lets trapped air escape so a chest wound doesn't collapse a lung.</div>
               <div class="product-card-foot">
-                <div class="product-card-price">$14.99</div>
-                <button class="add-to-cart-btn" data-id="hyfin-chest-seal" data-name="HyFin Vent Chest Seal Twin Pack" data-price="14.99" data-category="Chest Seals">Add to Cart</button>
+                <div class="product-card-price">$12.99</div>
+                <button class="add-to-cart-btn" data-id="hyfin-individual" data-name="HyFin Vent Chest Seal" data-price="12.99" data-category="Airway & Chest">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-item fade-in" data-type="Airway &amp; Chest" data-usecase="Everyday Carry">
+          <div class="product-card">
+            <div class="product-card-image"><span class="product-card-cat">Chest Seals</span><svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M19.07 4.93l-4.24 4.24M9.17 14.83l-4.24 4.24"/></svg></div>
+            <div class="product-card-body">
+              <div class="product-card-type">Airway &amp; Chest</div>
+              <div class="product-card-brand">North American Rescue</div>
+              <div class="product-card-title">HyFin Vent Chest Seal Twin Pack</div>
+              <div class="product-card-desc">Two vented chest seals for treating both entry and exit wounds.</div>
+              <div class="product-card-foot">
+                <div class="product-card-price">$17.99</div>
+                <button class="add-to-cart-btn" data-id="hyfin-twin-pack" data-name="HyFin Vent Chest Seal Twin Pack" data-price="17.99" data-category="Airway & Chest">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-item fade-in" data-type="Airway &amp; Chest" data-usecase="Team &amp; Organization">
+          <div class="product-card">
+            <div class="product-card-image"><span class="product-card-cat">Chest Seals</span><span class="product-card-badge">Training Aid</span><svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M19.07 4.93l-4.24 4.24M9.17 14.83l-4.24 4.24"/></svg></div>
+            <div class="product-card-body">
+              <div class="product-card-type">Airway &amp; Chest</div>
+              <div class="product-card-brand">North American Rescue</div>
+              <div class="product-card-title">HyFin Chest Seal Twin Pack &mdash; Trainer</div>
+              <div class="product-card-desc">Practice chest seals with gentler adhesive, safe for repeated use on manikins or skin.</div>
+              <div class="product-card-foot">
+                <div class="product-card-price">$16.49</div>
+                <button class="add-to-cart-btn" data-id="hyfin-trainer" data-name="HyFin Chest Seal Twin Pack Trainer" data-price="16.49" data-category="Airway & Chest">Add to Cart</button>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Hemostatic Dressings -->
-        <div class="product-item fade-in" data-type="Bleeding Control" data-usecase="Everyday Carry">
-          <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Hemostatic</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
-            <div class="product-card-body">
-              <div class="product-card-type">Bleeding Control</div>
-              <div class="product-card-title">QuikClot&reg; Z-Fold Dressing</div>
-              <div class="product-card-desc">Accelerates clotting for bleeding a tourniquet alone can't reach.</div>
-              <div class="product-card-foot">
-                <div class="product-card-price">$31.99</div>
-                <button class="add-to-cart-btn" data-id="quikclot-zfold" data-name="QuikClot Z-Fold Dressing" data-price="31.99" data-category="Hemostatic Dressings">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-item fade-in" data-type="Bleeding Control" data-usecase="Everyday Carry">
-          <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Hemostatic</span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
-            <div class="product-card-body">
-              <div class="product-card-type">Bleeding Control</div>
-              <div class="product-card-title">Celox&trade; Z-Fold Dressing (5 ft)</div>
-              <div class="product-card-desc">A second trusted hemostatic option for packing deep or junctional wounds.</div>
-              <div class="product-card-foot">
-                <div class="product-card-price">$27.89</div>
-                <button class="add-to-cart-btn" data-id="celox-zfold" data-name="Celox Z-Fold Dressing" data-price="27.89" data-category="Hemostatic Dressings">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- IFAKs -->
+        <!-- Kits & Bags -->
         <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Everyday Carry">
           <div class="product-card">
             <div class="product-card-image"><span class="product-card-cat">IFAK</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
             <div class="product-card-body">
-              <div class="product-card-type">Individual Kits</div>
-              <div class="product-card-title">Micro IFAK</div>
-              <div class="product-card-desc">A pared-down, low-profile kit for trauma basics without the bulk.</div>
+              <div class="product-card-type">Kits &amp; Bags</div>
+              <div class="product-card-brand">Snake Staff Systems</div>
+              <div class="product-card-title">Next-Generation IFAK</div>
+              <div class="product-card-desc">Personal bleeding-control kit with a pull-tab opening and QR-linked instructions.</div>
               <div class="product-card-foot">
-                <div class="product-card-price">$150.99</div>
-                <button class="add-to-cart-btn" data-id="micro-ifak" data-name="Micro IFAK" data-price="150.99" data-category="IFAKs">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Everyday Carry">
-          <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">IFAK</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
-            <div class="product-card-body">
-              <div class="product-card-type">Individual Kits</div>
-              <div class="product-card-title">OUT-PAK&trade; Kit</div>
-              <div class="product-card-desc">A compact trauma kit sized to ride in a pack on a hunt, hike, or backcountry trip.</div>
-              <div class="product-card-foot">
-                <div class="product-card-price">From $98.99</div>
-                <button class="add-to-cart-btn" data-id="out-pak-kit" data-name="OUT-PAK Kit" data-price="98.99" data-category="IFAKs">Add to Cart</button>
+                <div class="product-card-price">$34.99</div>
+                <button class="add-to-cart-btn" data-id="next-gen-ifak" data-name="Next-Generation IFAK" data-price="34.99" data-category="Kits & Bags">Add to Cart</button>
               </div>
             </div>
           </div>
         </div>
         <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Everyday Carry">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">IFAK</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Kit</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
             <div class="product-card-body">
-              <div class="product-card-type">Individual Kits</div>
-              <div class="product-card-title">Enhanced Trauma Aid Kit (ETAK)</div>
-              <div class="product-card-desc">A fuller-featured everyday kit covering the core MARCH essentials in one pouch.</div>
+              <div class="product-card-type">Kits &amp; Bags</div>
+              <div class="product-card-brand">Snake Staff Systems</div>
+              <div class="product-card-title">Pressure Pak</div>
+              <div class="product-card-desc">Compact trauma pack built to pair with or stand in for a full IFAK.</div>
               <div class="product-card-foot">
-                <div class="product-card-price">From $95.99</div>
-                <button class="add-to-cart-btn" data-id="etak" data-name="Enhanced Trauma Aid Kit (ETAK)" data-price="95.99" data-category="IFAKs">Add to Cart</button>
+                <div class="product-card-price">$29.99</div>
+                <button class="add-to-cart-btn" data-id="pressure-pak" data-name="Pressure Pak" data-price="29.99" data-category="Kits & Bags">Add to Cart</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Vehicle">
+        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Home,Vehicle">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">IFAK</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Full Kit</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
             <div class="product-card-body">
-              <div class="product-card-type">Individual Kits</div>
-              <div class="product-card-title">Headrest IFAK</div>
-              <div class="product-card-desc">Mounts directly to a vehicle headrest, so trauma gear is within reach on the road.</div>
+              <div class="product-card-type">Kits &amp; Bags</div>
+              <div class="product-card-brand">MyMedic</div>
+              <div class="product-card-title">MyFAK First Aid Kit</div>
+              <div class="product-card-desc">~164-piece comprehensive kit for home, vehicle, or backcountry use, MOLLE-mountable.</div>
               <div class="product-card-foot">
-                <div class="product-card-price">From $249.99</div>
-                <button class="add-to-cart-btn" data-id="headrest-ifak" data-name="Headrest IFAK" data-price="249.99" data-category="IFAKs">Add to Cart</button>
+                <div class="product-card-price">From $135.96</div>
+                <button class="add-to-cart-btn" data-id="myfak" data-name="MyFAK First Aid Kit" data-price="135.96" data-category="Kits & Bags">Add to Cart</button>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Public Access Bleeding Control -->
-        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Team &amp; Organization">
+        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Vehicle,Home">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Public Access</span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Med Pack</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
             <div class="product-card-body">
-              <div class="product-card-type">Bleeding Control Kits</div>
-              <div class="product-card-title">Individual BC Kit (Vacuum Sealed)</div>
-              <div class="product-card-desc">A compact, shelf-stable kit sized for wall-mount stations.</div>
+              <div class="product-card-type">Kits &amp; Bags</div>
+              <div class="product-card-brand">MyMedic</div>
+              <div class="product-card-title">Bleed Stopper Med Pack</div>
+              <div class="product-card-desc">Grab-and-go hemorrhage kit with a tourniquet, hemostatic dressing, gauze, and pressure bandage.</div>
               <div class="product-card-foot">
-                <div class="product-card-price">From $73.99</div>
-                <button class="add-to-cart-btn" data-id="bc-kit-vacuum" data-name="Individual BC Kit (Vacuum Sealed)" data-price="73.99" data-category="Bleeding Control Kits">Add to Cart</button>
+                <div class="product-card-price">$94.95</div>
+                <button class="add-to-cart-btn" data-id="bleed-stopper" data-name="Bleed Stopper Med Pack" data-price="94.95" data-category="Kits & Bags">Add to Cart</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Team &amp; Organization">
+        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Everyday Carry">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Public Access</span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Med Pack</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
             <div class="product-card-body">
-              <div class="product-card-type">Bleeding Control Kits</div>
-              <div class="product-card-title">Individual BC Kit (Nylon)</div>
-              <div class="product-card-desc">Same core contents in a durable nylon pouch built for repeated handling.</div>
+              <div class="product-card-type">Kits &amp; Bags</div>
+              <div class="product-card-brand">MyMedic</div>
+              <div class="product-card-title">Hiker Medic Med Pack</div>
+              <div class="product-card-desc">Trail-focused kit for blisters, minor wounds, dehydration, and exposure.</div>
               <div class="product-card-foot">
-                <div class="product-card-price">From $95.99</div>
-                <button class="add-to-cart-btn" data-id="bc-kit-nylon" data-name="Individual BC Kit (Nylon)" data-price="95.99" data-category="Bleeding Control Kits">Add to Cart</button>
+                <div class="product-card-price">$34.95</div>
+                <button class="add-to-cart-btn" data-id="hiker-medic" data-name="Hiker Medic Med Pack" data-price="34.95" data-category="Kits & Bags">Add to Cart</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Team &amp; Organization">
+        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Home,Everyday Carry">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Public Access</span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">Med Pack</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
             <div class="product-card-body">
-              <div class="product-card-type">Bleeding Control Kits</div>
-              <div class="product-card-title">STB Bleeding Control Kit</div>
-              <div class="product-card-desc">A standard Stop The Bleed-style kit, also available in reinforced nylon.</div>
+              <div class="product-card-type">Kits &amp; Bags</div>
+              <div class="product-card-brand">MyMedic</div>
+              <div class="product-card-title">ZZIPS Med Pack</div>
+              <div class="product-card-desc">Suture-alternative wound-closure kit with ZZIPS closures, gauze, and gloves.</div>
               <div class="product-card-foot">
-                <div class="product-card-price">From $99.99</div>
-                <button class="add-to-cart-btn" data-id="stb-bc-kit" data-name="STB Bleeding Control Kit" data-price="99.99" data-category="Bleeding Control Kits">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Team &amp; Organization">
-          <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Multi-Pack</span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <div class="product-card-body">
-              <div class="product-card-type">Team &amp; Classroom</div>
-              <div class="product-card-title">Bleeding Control Twin Pack</div>
-              <div class="product-card-desc">Two individual kits bundled together for a small office or classroom.</div>
-              <div class="product-card-foot">
-                <div class="product-card-price">From $149.99</div>
-                <button class="add-to-cart-btn" data-id="bc-twin-pack" data-name="Bleeding Control Twin Pack" data-price="149.99" data-category="Multi-Packs">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Team &amp; Organization">
-          <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Multi-Pack</span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <div class="product-card-body">
-              <div class="product-card-type">Team &amp; Classroom</div>
-              <div class="product-card-title">Bleeding Control 6-Pack</div>
-              <div class="product-card-desc">Six individual kits for a mid-size facility placing multiple wall stations.</div>
-              <div class="product-card-foot">
-                <div class="product-card-price">From $521.99</div>
-                <button class="add-to-cart-btn" data-id="bc-6-pack" data-name="Bleeding Control 6-Pack" data-price="521.99" data-category="Multi-Packs">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Team &amp; Organization">
-          <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Multi-Pack</span><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <div class="product-card-body">
-              <div class="product-card-type">Team &amp; Classroom</div>
-              <div class="product-card-title">Bleeding Control 8-Pack</div>
-              <div class="product-card-desc">The largest bundle, sized for a school building or multiple entry points.</div>
-              <div class="product-card-foot">
-                <div class="product-card-price">From $647.99</div>
-                <button class="add-to-cart-btn" data-id="bc-8-pack" data-name="Bleeding Control 8-Pack" data-price="647.99" data-category="Multi-Packs">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- TFAK -->
-        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Vehicle,Team &amp; Organization">
-          <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">TFAK</span><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-            <div class="product-card-body">
-              <div class="product-card-type">Trauma &amp; First Aid</div>
-              <div class="product-card-title">TFAK &mdash; Class A</div>
-              <div class="product-card-desc">A fuller trauma and first aid kit for a vehicle, office, or job site.</div>
-              <div class="product-card-foot">
-                <div class="product-card-price">From $226.99</div>
-                <button class="add-to-cart-btn" data-id="tfak-class-a" data-name="TFAK Class A" data-price="226.99" data-category="TFAK">Add to Cart</button>
+                <div class="product-card-price">$24.95</div>
+                <button class="add-to-cart-btn" data-id="zzips-med-pack" data-name="ZZIPS Med Pack" data-price="24.95" data-category="Kits & Bags">Add to Cart</button>
               </div>
             </div>
           </div>
         </div>
         <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Vehicle,Team &amp; Organization">
           <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">TFAK</span><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <div class="product-card-image"><span class="product-card-cat">IFAK</span><svg viewBox="0 0 24 24"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
             <div class="product-card-body">
-              <div class="product-card-type">Trauma &amp; First Aid</div>
-              <div class="product-card-title">TFAK &mdash; Class B</div>
-              <div class="product-card-desc">An expanded version of the Class A kit with additional supplies.</div>
+              <div class="product-card-type">Kits &amp; Bags</div>
+              <div class="product-card-brand">LT Creed</div>
+              <div class="product-card-title">Responder IFAK</div>
+              <div class="product-card-desc">Duty-belt/MOLLE trauma pouch with tourniquet, gauze, chest seal, airway, shears, and gloves.</div>
               <div class="product-card-foot">
-                <div class="product-card-price">From $270.99</div>
-                <button class="add-to-cart-btn" data-id="tfak-class-b" data-name="TFAK Class B" data-price="270.99" data-category="TFAK">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Home / EDC -->
-        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Home">
-          <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">Home</span><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-            <div class="product-card-body">
-              <div class="product-card-type">Home &amp; EDC</div>
-              <div class="product-card-title">RED Kit &mdash; Home</div>
-              <div class="product-card-desc">A household-ready trauma kit sized for the kitchen, garage, or family car.</div>
-              <div class="product-card-foot">
-                <div class="product-card-price">$270.99</div>
-                <button class="add-to-cart-btn" data-id="red-kit-home" data-name="RED Kit Home" data-price="270.99" data-category="Home &amp; EDC">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Everyday Carry">
-          <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">EDC</span><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-            <div class="product-card-body">
-              <div class="product-card-type">Home &amp; EDC</div>
-              <div class="product-card-title">RED Kit &mdash; Personal</div>
-              <div class="product-card-desc">A compact everyday-carry version built to go in a bag, purse, or glovebox.</div>
-              <div class="product-card-foot">
-                <div class="product-card-price">$127.99</div>
-                <button class="add-to-cart-btn" data-id="red-kit-personal" data-name="RED Kit Personal" data-price="127.99" data-category="Home &amp; EDC">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-item fade-in" data-type="Kits &amp; Bags" data-usecase="Everyday Carry">
-          <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">EDC</span><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-            <div class="product-card-body">
-              <div class="product-card-type">Home &amp; EDC</div>
-              <div class="product-card-title">Every Day Carry Wallet</div>
-              <div class="product-card-desc">The bare essentials, sized to disappear in a pocket or bag until needed.</div>
-              <div class="product-card-foot">
-                <div class="product-card-price">From $36.99</div>
-                <button class="add-to-cart-btn" data-id="edc-wallet" data-name="EDC Wallet" data-price="36.99" data-category="Home &amp; EDC">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- AEDs -->
-        <div class="product-item fade-in" data-type="AEDs" data-usecase="Team &amp; Organization">
-          <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">AED</span><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-            <div class="product-card-body">
-              <div class="product-card-type">AEDs</div>
-              <div class="product-card-title">ZOLL AED Plus</div>
-              <div class="product-card-desc">A rugged, easy-to-use automated external defibrillator built for first-time rescuers.</div>
-              <div class="product-card-foot">
-                <div class="product-card-price">$2,099.99</div>
-                <button class="add-to-cart-btn" data-id="zoll-aed-plus" data-name="ZOLL AED Plus" data-price="2099.99" data-category="AEDs">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-item fade-in" data-type="AEDs" data-usecase="Team &amp; Organization">
-          <div class="product-card">
-            <div class="product-card-image"><span class="product-card-cat">AED</span><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-            <div class="product-card-body">
-              <div class="product-card-type">AEDs</div>
-              <div class="product-card-title">ZOLL AED 3</div>
-              <div class="product-card-desc">ZOLL's current-generation AED with real-time CPR feedback to guide a rescuer.</div>
-              <div class="product-card-foot">
-                <div class="product-card-price">$2,499.99</div>
-                <button class="add-to-cart-btn" data-id="zoll-aed-3" data-name="ZOLL AED 3" data-price="2499.99" data-category="AEDs">Add to Cart</button>
+                <div class="product-card-price">$185.00</div>
+                <button class="add-to-cart-btn" data-id="responder-ifak" data-name="Responder IFAK" data-price="185.00" data-category="Kits & Bags">Add to Cart</button>
               </div>
             </div>
           </div>
